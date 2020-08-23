@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WzD-yd-RcT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8DH-Io-aEi">
+            <objects>
+                <tabBarController id="WzD-yd-RcT" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HVV-FZ-XFz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="fhY-IJ-vbv" kind="relationship" relationship="viewControllers" id="fsZ-6V-87X"/>
+                        <segue destination="5jC-7y-0z3" kind="relationship" relationship="viewControllers" id="4Pc-u1-cyH"/>
+                        <segue destination="pdN-5k-wTJ" kind="relationship" relationship="viewControllers" id="jip-RM-rDt"/>
+                        <segue destination="RKc-zj-I1u" kind="relationship" relationship="viewControllers" id="HcQ-zg-APP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vgt-Zf-K9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-422" y="-171"/>
+        </scene>
+        <!--ホーム-->
+        <scene sceneID="xRh-u7-pDM">
+            <objects>
+                <navigationController id="fhY-IJ-vbv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ホーム" image="house.fill" catalog="system" landscapeImage="house.fill" largeContentSizeImage="house.fill" selectedImage="house" id="aon-3P-XXz"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ASJ-g3-Tgy">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="h3w-eI-rbN" kind="relationship" relationship="rootViewController" id="vO5-Re-hLD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="McR-rK-5tH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1701" y="600"/>
+        </scene>
+        <!--口座・財布-->
+        <scene sceneID="TLS-Je-ajr">
+            <objects>
+                <navigationController id="5jC-7y-0z3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="口座・財布" image="yensign.square.fill" catalog="system" landscapeImage="yensign.square.fill" largeContentSizeImage="yensign.square.fill" selectedImage="yensign.square" id="YHI-d7-U56"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SLD-xn-tOS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yXc-kU-40T" kind="relationship" relationship="rootViewController" id="4t0-e2-Kts"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBH-n3-skq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-822" y="600"/>
+        </scene>
+        <!--記録-->
+        <scene sceneID="mGB-eX-3Sp">
+            <objects>
+                <navigationController id="pdN-5k-wTJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="記録" image="pencil" catalog="system" landscapeImage="pencil" largeContentSizeImage="pencil" selectedImage="pencil" id="ePh-BS-52n"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3vV-eu-X1S">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fcS-oi-uIV" kind="relationship" relationship="rootViewController" id="sR1-WZ-E7R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vmd-Db-LdK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="600"/>
+        </scene>
+        <!--ホーム-->
+        <scene sceneID="hI3-Xp-rYI">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h3w-eI-rbN" customClass="HomeViewController" customModule="Faminance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Lw-NL-Xlp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERP-oE-vEv">
+                                <rect key="frame" x="20" y="107.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="3EL-Id-b1I"/>
+                                    <constraint firstAttribute="width" constant="25" id="wep-xc-W8r"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="arrowtriangle.left" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今月の収支" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zN8-Y8-SjD">
+                                <rect key="frame" x="156" y="108" width="102" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkI-np-6EN">
+                                <rect key="frame" x="369" y="107.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Fap-Ao-Ke7"/>
+                                    <constraint firstAttribute="height" constant="25" id="YGd-JE-HWq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="arrowtriangle.right" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PhM-vl-XUY">
+                                <rect key="frame" x="0.0" y="152" width="414" height="661"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dRE-xW-IEX" firstAttribute="trailing" secondItem="MkI-np-6EN" secondAttribute="trailing" constant="20" id="Bkk-lD-TTm"/>
+                            <constraint firstItem="dRE-xW-IEX" firstAttribute="trailing" secondItem="PhM-vl-XUY" secondAttribute="trailing" id="P17-C6-Kjx"/>
+                            <constraint firstItem="ERP-oE-vEv" firstAttribute="centerY" secondItem="zN8-Y8-SjD" secondAttribute="centerY" id="QpL-RF-LdD"/>
+                            <constraint firstItem="PhM-vl-XUY" firstAttribute="top" secondItem="zN8-Y8-SjD" secondAttribute="bottom" constant="20" id="SLm-15-bKF"/>
+                            <constraint firstItem="dRE-xW-IEX" firstAttribute="bottom" secondItem="PhM-vl-XUY" secondAttribute="bottom" id="Vg5-ug-pKO"/>
+                            <constraint firstItem="MkI-np-6EN" firstAttribute="centerY" secondItem="zN8-Y8-SjD" secondAttribute="centerY" id="YEf-GI-6A0"/>
+                            <constraint firstItem="PhM-vl-XUY" firstAttribute="leading" secondItem="dRE-xW-IEX" secondAttribute="leading" id="all-yY-Yyq"/>
+                            <constraint firstItem="zN8-Y8-SjD" firstAttribute="top" secondItem="dRE-xW-IEX" secondAttribute="top" constant="20" id="ggR-Uf-bHc"/>
+                            <constraint firstItem="zN8-Y8-SjD" firstAttribute="centerX" secondItem="2Lw-NL-Xlp" secondAttribute="centerX" id="iJi-AJ-ERP"/>
+                            <constraint firstItem="ERP-oE-vEv" firstAttribute="leading" secondItem="dRE-xW-IEX" secondAttribute="leading" constant="20" id="wBw-Fm-JLN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dRE-xW-IEX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ホーム" id="8qR-lc-OaX"/>
+                    <connections>
+                        <outlet property="currentMonthLabel" destination="zN8-Y8-SjD" id="jad-ZH-mUS"/>
+                        <outlet property="mainCategoryTableView" destination="PhM-vl-XUY" id="HF4-t9-5EK"/>
+                        <outlet property="nextMonthButton" destination="MkI-np-6EN" id="Lsp-92-qz1"/>
+                        <outlet property="previousMonthButton" destination="ERP-oE-vEv" id="wsR-Re-Clz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="38K-8i-2vE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1701.449275362319" y="1323.8839285714284"/>
+        </scene>
+        <!--口座・財布-->
+        <scene sceneID="lpc-Tp-3ZT">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="yXc-kU-40T" customClass="BankViewController" customModule="Faminance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vSz-kv-C4h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qun-D6-H6v">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6FL-mi-wLz" firstAttribute="bottom" secondItem="Qun-D6-H6v" secondAttribute="bottom" id="Z57-yk-aZ2"/>
+                            <constraint firstItem="6FL-mi-wLz" firstAttribute="trailing" secondItem="Qun-D6-H6v" secondAttribute="trailing" id="cBa-aN-Rkn"/>
+                            <constraint firstItem="Qun-D6-H6v" firstAttribute="leading" secondItem="6FL-mi-wLz" secondAttribute="leading" id="tOM-ul-tpA"/>
+                            <constraint firstItem="Qun-D6-H6v" firstAttribute="top" secondItem="6FL-mi-wLz" secondAttribute="top" id="w3Q-Hs-esc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6FL-mi-wLz"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="口座・財布" id="u2b-hB-6Jk"/>
+                    <connections>
+                        <outlet property="bankTableView" destination="Qun-D6-H6v" id="u5L-TH-fpy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ex3-a2-0IF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-823" y="1324"/>
+        </scene>
+        <!--記録-->
+        <scene sceneID="gb0-W1-2tf">
+            <objects>
+                <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fcS-oi-uIV" customClass="RecordViewController" customModule="Faminance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s12-WO-cWH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2a-dU-ubL">
+                                <rect key="frame" x="0.0" y="108" width="414" height="77"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                                <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="¥23,390">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="amountButtonTapped:" destination="fcS-oi-uIV" eventType="touchUpInside" id="sft-NG-Nag"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh5-7a-HHu">
+                                <rect key="frame" x="0.0" y="205" width="414" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="2020年8月3日">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dateButtonTapped:" destination="fcS-oi-uIV" eventType="touchUpInside" id="NMb-W6-FUc"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="voN-cV-g3r">
+                                <rect key="frame" x="0.0" y="276" width="414" height="32"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="支出"/>
+                                    <segment title="収入"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5l-R0-pbL">
+                                <rect key="frame" x="20" y="327" width="384" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="カテゴリー" image="folder.circle" catalog="system">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryButtonTapped:" destination="fcS-oi-uIV" eventType="touchUpInside" id="PLt-6U-BYU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1L-wN-g5s">
+                                <rect key="frame" x="20" y="381" width="384" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="みんなのお財布" image="yensign.circle" catalog="system">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <action selector="bankButtonTapped:" destination="fcS-oi-uIV" eventType="touchUpInside" id="3zQ-kp-j9s"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="T1L-wN-g5s" secondAttribute="trailing" constant="10" id="1Rq-Je-T2F"/>
+                            <constraint firstItem="T1L-wN-g5s" firstAttribute="top" secondItem="q5l-R0-pbL" secondAttribute="bottom" constant="20" id="9rg-eS-sz2"/>
+                            <constraint firstItem="Uh5-7a-HHu" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" id="CVX-b3-5TN"/>
+                            <constraint firstItem="voN-cV-g3r" firstAttribute="top" secondItem="Uh5-7a-HHu" secondAttribute="bottom" constant="20" id="EzV-ZN-WQE"/>
+                            <constraint firstItem="T1L-wN-g5s" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="20" id="FJn-eS-kZv"/>
+                            <constraint firstItem="q5l-R0-pbL" firstAttribute="top" secondItem="voN-cV-g3r" secondAttribute="bottom" constant="20" id="NuL-R2-Dy7"/>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="q5l-R0-pbL" secondAttribute="trailing" constant="10" id="WIR-kL-p7M"/>
+                            <constraint firstItem="f2a-dU-ubL" firstAttribute="top" secondItem="s9B-RA-kkJ" secondAttribute="top" constant="20" id="XJY-nT-QNY"/>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="f2a-dU-ubL" secondAttribute="trailing" id="b9a-sg-udc"/>
+                            <constraint firstItem="q5l-R0-pbL" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="20" id="bzu-7S-7D6"/>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="voN-cV-g3r" secondAttribute="trailing" id="eyH-km-hVI"/>
+                            <constraint firstItem="Uh5-7a-HHu" firstAttribute="top" secondItem="f2a-dU-ubL" secondAttribute="bottom" constant="20" id="f4w-EA-FAd"/>
+                            <constraint firstItem="voN-cV-g3r" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" id="oar-Kk-EDR"/>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="Uh5-7a-HHu" secondAttribute="trailing" id="ytw-1B-iae"/>
+                            <constraint firstItem="f2a-dU-ubL" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" id="zro-Ii-N60"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="s9B-RA-kkJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="記録" id="5KG-c0-2Ph"/>
+                    <connections>
+                        <outlet property="amountButton" destination="f2a-dU-ubL" id="uuo-gf-PDx"/>
+                        <outlet property="bankButton" destination="T1L-wN-g5s" id="x3h-rc-xCu"/>
+                        <outlet property="categoryButton" destination="q5l-R0-pbL" id="URW-aw-bPk"/>
+                        <outlet property="dateButton" destination="Uh5-7a-HHu" id="1sp-xw-y7d"/>
+                        <outlet property="inOutSegmentedControl" destination="voN-cV-g3r" id="N9k-Wb-SO7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1B3-Om-nQB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="1323.8839285714284"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="0K7-GD-ZZy">
+            <objects>
+                <navigationController id="RKc-zj-I1u" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="設定" image="gear" catalog="system" landscapeImage="gear" largeContentSizeImage="gear" selectedImage="gear" id="KHv-oM-TID"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6kt-yt-90d">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="L7w-9l-wBY" kind="relationship" relationship="rootViewController" id="QsV-oV-AHH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LGn-nQ-3Af" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="600"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="Ts8-nd-Dav">
+            <objects>
+                <viewController id="L7w-9l-wBY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="18b-4f-oxy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0iT-oO-5Z0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="設定" id="zSo-eW-pkQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xhG-PL-3EU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="1324"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowtriangle.left" catalog="system" width="128" height="113"/>
+        <image name="arrowtriangle.right" catalog="system" width="128" height="113"/>
+        <image name="folder.circle" catalog="system" width="128" height="121"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="yensign.circle" catalog="system" width="128" height="121"/>
+        <image name="yensign.square" catalog="system" width="128" height="114"/>
+        <image name="yensign.square.fill" catalog="system" width="128" height="114"/>
+    </resources>
+</document>

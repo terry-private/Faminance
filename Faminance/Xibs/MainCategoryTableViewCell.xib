@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" id="PTu-9z-rn0" customClass="MainCategoryTableViewCell" customModule="Faminance" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="442" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999998807907104" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PTu-9z-rn0" id="vEG-ie-AC4">
+                <rect key="frame" x="0.0" y="0.0" width="442" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9t-Lb-hOE">
+                        <rect key="frame" x="180" y="60" width="252" height="12"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="Po2-Jh-c7K"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQJ-hn-6qY">
+                        <rect key="frame" x="180" y="60" width="0.0" height="12"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" id="jhh-14-enI"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="生活費" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C99-Ot-WdG">
+                        <rect key="frame" x="30" y="18" width="76" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28,765円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyT-zC-qvd">
+                        <rect key="frame" x="30" y="58" width="75.5" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="残り 21,235円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qev-i8-rsy">
+                        <rect key="frame" x="30" y="84.5" width="90.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目標" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oki-3J-zsz">
+                        <rect key="frame" x="288.5" y="34" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="XyT-zC-qvd" firstAttribute="top" secondItem="C99-Ot-WdG" secondAttribute="bottom" constant="10" id="0Gj-Sa-XN9"/>
+                    <constraint firstItem="XyT-zC-qvd" firstAttribute="leading" secondItem="vEG-ie-AC4" secondAttribute="leading" constant="30" id="2nx-gq-43f"/>
+                    <constraint firstItem="NQJ-hn-6qY" firstAttribute="top" secondItem="b9t-Lb-hOE" secondAttribute="top" id="DNw-Zj-376"/>
+                    <constraint firstAttribute="bottom" secondItem="b9t-Lb-hOE" secondAttribute="bottom" constant="40" id="IAo-NV-rYp"/>
+                    <constraint firstItem="b9t-Lb-hOE" firstAttribute="leading" secondItem="vEG-ie-AC4" secondAttribute="leading" constant="180" id="OqJ-cU-ZQl"/>
+                    <constraint firstItem="XyT-zC-qvd" firstAttribute="leading" secondItem="qev-i8-rsy" secondAttribute="leading" id="QoB-ZP-MpD"/>
+                    <constraint firstItem="C99-Ot-WdG" firstAttribute="leading" secondItem="vEG-ie-AC4" secondAttribute="leading" constant="30" id="Svn-lH-bnL"/>
+                    <constraint firstItem="b9t-Lb-hOE" firstAttribute="bottom" secondItem="NQJ-hn-6qY" secondAttribute="bottom" id="af1-DK-4hN"/>
+                    <constraint firstItem="b9t-Lb-hOE" firstAttribute="top" secondItem="oki-3J-zsz" secondAttribute="bottom" constant="5" id="bt5-QL-qfW"/>
+                    <constraint firstAttribute="trailing" secondItem="b9t-Lb-hOE" secondAttribute="trailing" constant="10" id="czz-vM-E3Y"/>
+                    <constraint firstItem="NQJ-hn-6qY" firstAttribute="leading" secondItem="b9t-Lb-hOE" secondAttribute="leading" id="dvt-UR-Rpg"/>
+                    <constraint firstItem="C99-Ot-WdG" firstAttribute="top" secondItem="vEG-ie-AC4" secondAttribute="top" constant="18" id="hO5-WP-KzW"/>
+                    <constraint firstItem="b9t-Lb-hOE" firstAttribute="top" secondItem="vEG-ie-AC4" secondAttribute="top" constant="60" id="iMn-Me-e2z"/>
+                    <constraint firstItem="qev-i8-rsy" firstAttribute="top" secondItem="XyT-zC-qvd" secondAttribute="bottom" constant="5" id="nIZ-YT-Y9P"/>
+                    <constraint firstItem="oki-3J-zsz" firstAttribute="centerX" secondItem="b9t-Lb-hOE" secondAttribute="centerX" id="s8C-VS-XQX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="recentryMonyLabel" destination="XyT-zC-qvd" id="rM2-MZ-nsb"/>
+                <outlet property="remainingMonyLabel" destination="qev-i8-rsy" id="u1q-Zk-C8H"/>
+                <outlet property="statusBackBarView" destination="b9t-Lb-hOE" id="ebA-53-7xZ"/>
+                <outlet property="statusFrontBarView" destination="NQJ-hn-6qY" id="WqP-Ic-fsf"/>
+                <outlet property="statusFrontBarWidth" destination="jhh-14-enI" id="vpc-gd-UtP"/>
+                <outlet property="statusNameLabel" destination="C99-Ot-WdG" id="6J5-u0-fkE"/>
+                <outlet property="targetMoneyLabel" destination="oki-3J-zsz" id="NNd-IK-zu5"/>
+            </connections>
+            <point key="canvasLocation" x="-487" y="96"/>
+        </tableViewCell>
+    </objects>
+</document>

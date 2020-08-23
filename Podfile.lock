@@ -1,0 +1,26 @@
+PODS:
+  - BottomHalfModal (1.0.0)
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
+  - FSCalendar (2.8.1)
+
+DEPENDENCIES:
+  - BottomHalfModal
+  - Charts
+  - FSCalendar
+
+SPEC REPOS:
+  trunk:
+    - BottomHalfModal
+    - Charts
+    - FSCalendar
+
+SPEC CHECKSUMS:
+  BottomHalfModal: a5d9beebb3b16ef6630ffa234ae48d2a94e22fdb
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
+
+PODFILE CHECKSUM: 6cf6c5bd0a3c34035204e2ead8c90f8c058ce6fe
+
+COCOAPODS: 1.9.3
