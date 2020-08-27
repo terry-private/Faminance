@@ -29,8 +29,16 @@ class HomeViewController: UIViewController {
     ]
     
     private let cellId = "cellId"
-    let faminance = Faminance(dic: SampleData().dic).getAtMonth(date: Date())
-    var currentDate = Date()
+    var version = CurrentData.faminance.version
+    var mainCategoryKeys = [String](CurrentData.faminance.mainCategories.keys).sorted{$0 < $1}
+    var currentDate = Date.current {
+        didSet{
+            print("currentDate>didSet")
+            currentMonthLabel.text = " \(currentDate.year)年 \(currentDate.month)月の収支"
+            tableReload()
+        }
+    }
+    var currentFaminance = CurrentData.faminance.getAtMonth(date: Date.current)
 
     @IBOutlet weak var previousMonthButton: UIButton!
     @IBOutlet weak var nextMonthButton: UIButton!
@@ -48,6 +56,27 @@ class HomeViewController: UIViewController {
         mainCategoryTableView.register(UINib(nibName: "MainCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
     }
     
+    func tableReload(){
+        mainCategoryKeys.removeAll()
+        mainCategoryTableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now()){
+            self.currentFaminance = CurrentData.faminance.getAtMonth(date:self.currentDate)
+            self.mainCategoryKeys = [String](self.currentFaminance.mainCategories.keys).sorted{$0 < $1}
+            self.mainCategoryTableView.reloadData()
+            
+        }
+        print(mainCategoryKeys)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 変更がある場合のみテーブルをリロード
+        if version != CurrentData.faminance.version {
+            tableReload()
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -57,18 +86,26 @@ class HomeViewController: UIViewController {
         }
         
     }
+    @IBAction func previousMonthButtonTapped(_ sender: Any) {
+        currentDate = currentDate.added(month: -1)
+    }
+    @IBAction func nextMonthButtonTapped(_ sender: Any) {
+        if currentDate.month < Date.current.month {
+            currentDate = currentDate.added(month:1)
+        }
+    }
     
 }
 
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return faminance.mainCategories.count
+        return mainCategoryKeys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainCategoryTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MainCategoryTableViewCell
-        let mc = faminance.mainCategoryAtIndex(indexPath.row)
+        let mc = currentFaminance.mainCategories[mainCategoryKeys[indexPath.row]]?.getAtMonth(date: currentDate)
         cell.statusNameLabel.text = mc?.name
         cell.targetAmount = Float(mc?.targetAmount ?? 0)
         cell.realAmount = Float(mc?.getSum() ?? 0)
@@ -83,8 +120,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let mainCategoryPieChartViewController = storyboard.instantiateViewController(withIdentifier: "MainCategoryDetailsController") as! MainCategoryDetailsController
         mainCategoryPieChartViewController.currentDate = self.currentDate
-        mainCategoryPieChartViewController.mainCategory = self.faminance.getAtMonth(date: currentDate).mainCategoryAtIndex(indexPath.row)
-        mainCategoryPieChartViewController.myBanks = self.faminance.myBanks
+        mainCategoryPieChartViewController.mainCategory = currentFaminance.mainCategories[mainCategoryKeys[indexPath.row]]?.getAtMonth(date: currentDate)
+        mainCategoryPieChartViewController.myBanks = CurrentData.faminance.myBanks
         
         
         let nav = UINavigationController(rootViewController: mainCategoryPieChartViewController)

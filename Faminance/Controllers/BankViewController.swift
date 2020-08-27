@@ -24,8 +24,10 @@ class BankViewController: UIViewController {
         UIColor.rgba(red: 155/3*2, green: 89/3*2, blue: 182/3*2, alpha: 1)//紫
     ]
     private let cellId = "cellId"
-    let faminance = Faminance(dic: SampleData().dic)
-    var currentDate = Date()
+    
+    var currentVersion = CurrentData.faminance.version
+    var myBankKeys: [String] = [String](CurrentData.faminance.myBanks.keys).sorted{ $0 < $1 }
+    var currentDate = Date.current
     
     
     @IBOutlet weak var bankTableView: UITableView!
@@ -34,6 +36,23 @@ class BankViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 変更がある場合のみテーブルをリロード
+        if currentVersion != CurrentData.faminance.version{
+            myBankKeys.removeAll()
+            bankTableView.reloadData()
+            self.myBankKeys = [String](CurrentData.faminance.myBanks.keys).sorted{ $0 < $1 }
+            bankTableView.reloadData()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     func setUpTable() {
@@ -45,12 +64,12 @@ class BankViewController: UIViewController {
 
 extension BankViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return faminance.myBanks.count
+        return myBankKeys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = bankTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BankTableViewCell
-        let bk = faminance.myBankAtIndex(indexPath.row)
+        let bk = CurrentData.faminance.myBanks[myBankKeys[indexPath.row]]
         
         
         let formatter = NumberFormatter()
@@ -58,12 +77,14 @@ extension BankViewController: UITableViewDelegate, UITableViewDataSource {
         cell.bankNameLabel.text = bk?.name
         cell.latestBalanceLabel.text = formatter.string(from: NSNumber(value: bk?.latestBalance() ?? 0))
         
-        cell.selectedBackgroundView?.backgroundColor = selectedUiColorPallete[indexPath.row % 5]
+        cell.selectedBackgroundView?.backgroundColor = UIColor.rgba(red:0, green: 0, blue: 0, alpha: 0.3)
         cell.backgroundColor = bankUiColorPallete[indexPath.row % 5]
-        
-        
-        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
     }
     
     

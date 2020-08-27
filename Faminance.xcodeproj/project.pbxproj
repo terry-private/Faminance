@@ -15,6 +15,9 @@
 		0947E6F724F26FC300198D0F /* InputSubCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0947E6F624F26FC300198D0F /* InputSubCategory.storyboard */; };
 		0947E6F924F2B2E800198D0F /* InputMainCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0947E6F824F2B2E800198D0F /* InputMainCategoryTableViewCell.xib */; };
 		09492C3024F1013000D9D9FB /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09492C2F24F1013000D9D9FB /* String-Extension.swift */; };
+		094A237624F5341800AF3BA3 /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094A237524F5341800AF3BA3 /* CurrentData.swift */; };
+		094A237924F5387400AF3BA3 /* InputBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094A237824F5387400AF3BA3 /* InputBankViewController.swift */; };
+		094A237B24F5394600AF3BA3 /* InputBank.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094A237A24F5394600AF3BA3 /* InputBank.storyboard */; };
 		094BCB3C24EE9401006711DC /* InputCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCB3B24EE9401006711DC /* InputCalendarViewController.swift */; };
 		094BCB4724EEA817006711DC /* InputCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCB4624EEA817006711DC /* InputCalculatorViewController.swift */; };
 		094BCB4924EEA8BB006711DC /* CalculatorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCB4824EEA8BB006711DC /* CalculatorViewCell.swift */; };
@@ -79,6 +82,9 @@
 		0947E6F624F26FC300198D0F /* InputSubCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputSubCategory.storyboard; sourceTree = "<group>"; };
 		0947E6F824F2B2E800198D0F /* InputMainCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputMainCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		09492C2F24F1013000D9D9FB /* String-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
+		094A237524F5341800AF3BA3 /* CurrentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentData.swift; sourceTree = "<group>"; };
+		094A237824F5387400AF3BA3 /* InputBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBankViewController.swift; sourceTree = "<group>"; };
+		094A237A24F5394600AF3BA3 /* InputBank.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputBank.storyboard; sourceTree = "<group>"; };
 		094BCB3B24EE9401006711DC /* InputCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCalendarViewController.swift; sourceTree = "<group>"; };
 		094BCB4624EEA817006711DC /* InputCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCalculatorViewController.swift; sourceTree = "<group>"; };
 		094BCB4824EEA8BB006711DC /* CalculatorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +173,15 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		094A237724F537D700AF3BA3 /* Banks */ = {
+			isa = PBXGroup;
+			children = (
+				094A237824F5387400AF3BA3 /* InputBankViewController.swift */,
+				094A237A24F5394600AF3BA3 /* InputBank.storyboard */,
+			);
+			path = Banks;
+			sourceTree = "<group>";
+		};
 		094BCB4524EEA7EF006711DC /* inputs */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +191,7 @@
 				094BCB4A24EEB012006711DC /* InputCalculatorView.storyboard */,
 				094BCB4824EEA8BB006711DC /* CalculatorViewCell.swift */,
 				0947E6EF24F20EA300198D0F /* Categories */,
+				094A237724F537D700AF3BA3 /* Banks */,
 			);
 			path = inputs;
 			sourceTree = "<group>";
@@ -264,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				09511EF524E8D6E100470C22 /* SampleData.swift */,
+				094A237524F5341800AF3BA3 /* CurrentData.swift */,
 				09511EF324E8D69100470C22 /* Faminance.swift */,
 				09511EF124E8D62F00470C22 /* User.swift */,
 				09511EEF24E8D5BA00470C22 /* MyBank.swift */,
@@ -447,6 +464,7 @@
 				09511EFF24E8E82800470C22 /* MainCategoryDetails.storyboard in Resources */,
 				09511EB824E8BE2000470C22 /* Assets.xcassets in Resources */,
 				0947E6F724F26FC300198D0F /* InputSubCategory.storyboard in Resources */,
+				094A237B24F5394600AF3BA3 /* InputBank.storyboard in Resources */,
 				0947E6F924F2B2E800198D0F /* InputMainCategoryTableViewCell.xib in Resources */,
 				09511EB624E8BE1F00470C22 /* Main.storyboard in Resources */,
 			);
@@ -579,6 +597,7 @@
 				09511EE624E8D24C00470C22 /* Date-Extension.swift in Sources */,
 				09511EE224E8D1F000470C22 /* UIColor-Extension.swift in Sources */,
 				09492C3024F1013000D9D9FB /* String-Extension.swift in Sources */,
+				094A237924F5387400AF3BA3 /* InputBankViewController.swift in Sources */,
 				09511EFD24E8DA6300470C22 /* MainCategoryTableViewCell.swift in Sources */,
 				09511EAF24E8BE1F00470C22 /* AppDelegate.swift in Sources */,
 				09511EEA24E8D2F200470C22 /* CashTransaction.swift in Sources */,
@@ -589,6 +608,7 @@
 				0947E6F524F26EFE00198D0F /* InputSubCategoryViewController.swift in Sources */,
 				09511EEC24E8D3CB00470C22 /* SubCategory.swift in Sources */,
 				0947E6EE24F20E9F00198D0F /* InputMainCategoryViewController.swift in Sources */,
+				094A237624F5341800AF3BA3 /* CurrentData.swift in Sources */,
 				09511EF024E8D5BA00470C22 /* MyBank.swift in Sources */,
 				09511F0324E8EA1800470C22 /* CashTransactionTableViewCell.swift in Sources */,
 				09511EF624E8D6E100470C22 /* SampleData.swift in Sources */,

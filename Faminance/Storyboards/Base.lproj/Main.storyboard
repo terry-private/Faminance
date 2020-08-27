@@ -108,6 +108,9 @@
                                 </constraints>
                                 <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" image="arrowtriangle.left" catalog="system"/>
+                                <connections>
+                                    <action selector="previousMonthButtonTapped:" destination="h3w-eI-rbN" eventType="touchUpInside" id="PZd-Vt-b24"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今月の収支" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zN8-Y8-SjD">
                                 <rect key="frame" x="156" y="108" width="102" height="24"/>
@@ -126,6 +129,9 @@
                                 <state key="normal" image="arrowtriangle.right" catalog="system">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextMonthButtonTapped:" destination="h3w-eI-rbN" eventType="touchUpInside" id="Kql-4J-b3x"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PhM-vl-XUY">
                                 <rect key="frame" x="0.0" y="152" width="414" height="661"/>
@@ -240,7 +246,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="カテゴリー" image="folder.circle" catalog="system">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
                                 <connections>
@@ -251,12 +257,45 @@
                                 <rect key="frame" x="20" y="381" width="384" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="みんなのお財布" image="yensign.circle" catalog="system">
-                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="口座、財布" image="yensign.circle" catalog="system">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
                                 <connections>
                                     <action selector="bankButtonTapped:" destination="fcS-oi-uIV" eventType="touchUpInside" id="3zQ-kp-j9s"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KAY-1K-NwR">
+                                <rect key="frame" x="20" y="434.5" width="35" height="34"/>
+                                <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KAY-1K-NwR" secondAttribute="height" multiplier="1:1" id="hqd-O7-031"/>
+                                    <constraint firstAttribute="height" constant="35" id="p9C-5r-sjT"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メモ" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6ia-sJ-Ofy">
+                                <rect key="frame" x="58" y="435" width="336" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="memoTextFieldTappedDone:" destination="fcS-oi-uIV" eventType="editingDidEndOnExit" id="tcK-Oz-SDJ"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8By-YR-YTE">
+                                <rect key="frame" x="30" y="501" width="354" height="40"/>
+                                <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="0.80993150684931503" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="TbH-rX-k6W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="確定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="fixButtonTapped:" destination="fcS-oi-uIV" eventType="touchUpInside" id="Lan-yF-VJP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -265,8 +304,10 @@
                             <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="T1L-wN-g5s" secondAttribute="trailing" constant="10" id="1Rq-Je-T2F"/>
                             <constraint firstItem="T1L-wN-g5s" firstAttribute="top" secondItem="q5l-R0-pbL" secondAttribute="bottom" constant="20" id="9rg-eS-sz2"/>
                             <constraint firstItem="Uh5-7a-HHu" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" id="CVX-b3-5TN"/>
+                            <constraint firstItem="6ia-sJ-Ofy" firstAttribute="top" secondItem="T1L-wN-g5s" secondAttribute="bottom" constant="20" id="CaR-8z-tao"/>
                             <constraint firstItem="voN-cV-g3r" firstAttribute="top" secondItem="Uh5-7a-HHu" secondAttribute="bottom" constant="20" id="EzV-ZN-WQE"/>
                             <constraint firstItem="T1L-wN-g5s" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="20" id="FJn-eS-kZv"/>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="6ia-sJ-Ofy" secondAttribute="trailing" constant="20" id="Lf9-i9-Rdh"/>
                             <constraint firstItem="q5l-R0-pbL" firstAttribute="top" secondItem="voN-cV-g3r" secondAttribute="bottom" constant="20" id="NuL-R2-Dy7"/>
                             <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="q5l-R0-pbL" secondAttribute="trailing" constant="10" id="WIR-kL-p7M"/>
                             <constraint firstItem="f2a-dU-ubL" firstAttribute="top" secondItem="s9B-RA-kkJ" secondAttribute="top" constant="20" id="XJY-nT-QNY"/>
@@ -274,9 +315,15 @@
                             <constraint firstItem="q5l-R0-pbL" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="20" id="bzu-7S-7D6"/>
                             <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="voN-cV-g3r" secondAttribute="trailing" id="eyH-km-hVI"/>
                             <constraint firstItem="Uh5-7a-HHu" firstAttribute="top" secondItem="f2a-dU-ubL" secondAttribute="bottom" constant="20" id="f4w-EA-FAd"/>
+                            <constraint firstItem="8By-YR-YTE" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="30" id="gWH-ci-9pe"/>
+                            <constraint firstItem="KAY-1K-NwR" firstAttribute="top" secondItem="T1L-wN-g5s" secondAttribute="bottom" constant="20" id="kUj-ar-mPH"/>
+                            <constraint firstItem="KAY-1K-NwR" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="20" id="lDW-T2-VzP"/>
                             <constraint firstItem="voN-cV-g3r" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" id="oar-Kk-EDR"/>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="8By-YR-YTE" secondAttribute="trailing" constant="30" id="q0B-5x-b2R"/>
+                            <constraint firstItem="8By-YR-YTE" firstAttribute="top" secondItem="6ia-sJ-Ofy" secondAttribute="bottom" constant="30" id="vPj-Dt-niP"/>
                             <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="Uh5-7a-HHu" secondAttribute="trailing" id="ytw-1B-iae"/>
                             <constraint firstItem="f2a-dU-ubL" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" id="zro-Ii-N60"/>
+                            <constraint firstItem="6ia-sJ-Ofy" firstAttribute="leading" secondItem="KAY-1K-NwR" secondAttribute="trailing" constant="3" id="zsG-D5-jV1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="s9B-RA-kkJ"/>
                     </view>
@@ -286,7 +333,9 @@
                         <outlet property="bankButton" destination="T1L-wN-g5s" id="x3h-rc-xCu"/>
                         <outlet property="categoryButton" destination="q5l-R0-pbL" id="URW-aw-bPk"/>
                         <outlet property="dateButton" destination="Uh5-7a-HHu" id="1sp-xw-y7d"/>
+                        <outlet property="fixButton" destination="8By-YR-YTE" id="uOW-wp-gPy"/>
                         <outlet property="inOutSegmentedControl" destination="voN-cV-g3r" id="N9k-Wb-SO7"/>
+                        <outlet property="memoTextField" destination="6ia-sJ-Ofy" id="KNe-m4-10Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1B3-Om-nQB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -339,6 +388,7 @@
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="yensign.circle" catalog="system" width="128" height="121"/>
         <image name="yensign.square" catalog="system" width="128" height="114"/>
         <image name="yensign.square.fill" catalog="system" width="128" height="114"/>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Input Bank View Controller-->
+        <scene sceneID="erd-94-Zd7">
+            <objects>
+                <viewController storyboardIdentifier="InputBankViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b5t-wh-Nff" customClass="InputBankViewController" customModule="Faminance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P4Q-xD-BNu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eeO-MM-8Ja">
+                                <rect key="frame" x="0.0" y="44" width="414" height="420"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="420" id="6ho-ml-k3g"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" id="7ev-fB-RHs" customClass="InputBankTableViewCell" customModule="Faminance" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7ev-fB-RHs" id="Qnp-gO-pSQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-Uh-bMH">
+                                                    <rect key="frame" x="30" y="10" width="384" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Sge-Uh-bMH" secondAttribute="trailing" id="9Ja-5e-Ukz"/>
+                                                <constraint firstAttribute="bottom" secondItem="Sge-Uh-bMH" secondAttribute="bottom" constant="10" id="IfW-Ja-HYf"/>
+                                                <constraint firstItem="Sge-Uh-bMH" firstAttribute="top" secondItem="Qnp-gO-pSQ" secondAttribute="top" constant="10" id="JpW-a0-fzr"/>
+                                                <constraint firstItem="Sge-Uh-bMH" firstAttribute="leading" secondItem="Qnp-gO-pSQ" secondAttribute="leading" constant="30" id="RfU-6r-VxO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                <color key="value" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="bankNameLabel" destination="Sge-Uh-bMH" id="9pb-uW-oQw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ss6-Wb-Ae2" firstAttribute="trailing" secondItem="eeO-MM-8Ja" secondAttribute="trailing" id="jBb-jr-Afb"/>
+                            <constraint firstItem="eeO-MM-8Ja" firstAttribute="top" secondItem="Ss6-Wb-Ae2" secondAttribute="top" id="pVr-FH-irS"/>
+                            <constraint firstItem="eeO-MM-8Ja" firstAttribute="leading" secondItem="Ss6-Wb-Ae2" secondAttribute="leading" id="pWU-70-Ikv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ss6-Wb-Ae2"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputBankTableView" destination="eeO-MM-8Ja" id="nYE-BF-oxw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jHQ-Ps-fiA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88" y="102"/>
+        </scene>
+    </scenes>
+</document>

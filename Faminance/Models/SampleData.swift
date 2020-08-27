@@ -17,40 +17,40 @@ struct SampleData{
                 "id": "uid001",
                 "name": "照仁",
                 "email": "ataeteruhito@gmail.com",
-                "createdAt": Date()
+                "createdAt": Date.current
             ],
             "uid002": [
                 "id": "uid002",
                 "name": "知恵",
                 "email": "chie@gmail.com",
-                "createdAt": Date()
+                "createdAt": Date.current
             ]
         ]
         
         let myBanks: [String: Any] = [
             "bid001": [
-                "id": "bid01",
+                "id": "bid001",
                 "name": "照仁の三井住友",
                 "initialAmount": 1000000,
                 "remark": "生活費用の口座"
             
             ],
             "bid002": [
-                "id": "bid02",
-                "name": "みんなのお財布",
+                "id": "bid002",
+                "name": "家族のお財布",
                 "initialAmount": 18000,
                 "remark": "財布"
             
             ],
             "bid003": [
-                "id": "bid03",
+                "id": "bid003",
                 "name": "知恵のゆうちょ",
                 "initialAmount": 1000000,
                 "remark": "貯金用の口座"
             
             ],
             "bid004": [
-                "id": "bid04",
+                "id": "bid004",
                 "name": "タンス預金",
                 "initialAmount": 1000000,
                 "remark": "お祝いなど"
@@ -237,6 +237,4 @@ struct SampleData{
 
 
 
-struct CurrentData {
-    static var faminance: Faminance = Faminance(dic: SampleData().dic)
-}
+

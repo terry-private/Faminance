@@ -15,6 +15,7 @@ class Faminance {
     var myBanks = [String: MyBank]()
     var mainCategories = [String: MainCategory]()
     var memo: String
+    var version: Int
     
     init(dic: [String: Any]) {
         self.id = dic["id"] as? String ?? ""
@@ -38,6 +39,7 @@ class Faminance {
         }
         
         self.memo = dic["memo"] as? String ?? ""
+        self.version = dic["version"] as? Int ?? 0
         
         setMyBanksCashTransactions()
     }
@@ -74,10 +76,15 @@ class Faminance {
         return self.myBanks[sortedMyBanks[index]]
     }
     
+    func addCashTransaction(_ ct: CashTransaction) {
+        self.mainCategories[ct.mainCategoryId]?.subCategories[ct.subCategoryId]?.cashTransactions[ct.id] = ct
+        self.myBanks[ct.bankId]?.cashTransactions[ct.id] = ct
+    }
+    
     func getAtMonth(date: Date) -> Faminance {
         var mcs = [String: MainCategory]()
         for (mcId,mc) in self.mainCategories {
-            mcs[mcId] = mc
+            mcs[mcId] = mc.getAtMonth(date: date)
         }
         let fm = Faminance(dic:[
             "id": self.id,

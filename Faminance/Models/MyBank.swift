@@ -26,7 +26,11 @@ class MyBank {
     func latestBalance() -> Int {
         var sum = self.initialAmount
         for ct in self.cashTransactions.values {
-            sum += ct.amount
+            if ct.inOut == "支出"{
+                sum -= ct.amount
+            }else{
+                sum += ct.amount
+            }
         }
         return sum
     }

@@ -19,7 +19,7 @@ final class InputCalendarViewController: UIViewController, SheetContentHeightMod
     var inputCalendarViewControllerDelegate: InputCalendarViewControllerDelegate?
     var currentDate = Date.current
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
-    let sheetContentHeightToModify: CGFloat = 550
+    let sheetContentHeightToModify: CGFloat = 420
 
     init() {
         super.init(nibName: nil, bundle: Bundle(for: InputCalendarViewController.self))
