@@ -15,11 +15,15 @@ class HomeViewController: UIViewController {
     var version = CurrentData.faminance.version
     var mainCategoryKeys = [String](CurrentData.faminance.mainCategories.keys).sorted{$0 < $1}
     var currentFaminance = CurrentData.faminance.getAtMonth(date: Date.current)
+    var income: Int = 0
+    var outgo: Int = 0
+    var currentBalance = 0
     var currentDate = Date.current {
         didSet{
-            print("currentDate>didSet")
             currentMonthLabel.text = " \(currentDate.year)年 \(currentDate.month)月の収支"
             tableReload()
+            runAllBarAnimation()
+            setBallance()
         }
     }
 
@@ -27,9 +31,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var nextMonthButton: UIButton!
     @IBOutlet weak var currentMonthLabel: UILabel!
     @IBOutlet weak var mainCategoryTableView: UITableView!
-
+    @IBOutlet weak var currentBalanceLabel: UILabel!
+    @IBOutlet weak var incomeLabel: UILabel!
+    @IBOutlet weak var outgoLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentDate = Date.current
         setUpTable()
     }
 
@@ -46,6 +54,7 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         runAllBarAnimation()
+        setBallance()
     }
     
     
@@ -55,15 +64,30 @@ class HomeViewController: UIViewController {
         mainCategoryTableView.dataSource = self
         mainCategoryTableView.register(UINib(nibName: "MainCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
     }
+    
+    func setBallance() {
+        currentBalance = income - outgo
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        incomeLabel.text = formatter.string(from: NSNumber(value: income))
+        outgoLabel.text = formatter.string(from: NSNumber(value: outgo))
+        if currentBalance < 0 {
+            currentBalanceLabel.text = "ー" + (formatter.string(from: NSNumber(value: currentBalance)) ?? "¥0")
+        } else {
+            currentBalanceLabel.text = "＋" + (formatter.string(from: NSNumber(value: currentBalance)) ?? "¥0")
+        }
+    }
 
     /// tableCellをリロード
     func tableReload(){
         mainCategoryKeys.removeAll()
+        income = 0
+        outgo = 0
         mainCategoryTableView.reloadData()
         self.currentFaminance = CurrentData.faminance.getAtMonth(date:self.currentDate)
         self.mainCategoryKeys = [String](self.currentFaminance.mainCategories.keys).sorted{$0 < $1}
         self.mainCategoryTableView.reloadData()
-        runAllBarAnimation()
+        
     }
     
     /// 全てのバーアニメーションを開始します。
@@ -98,7 +122,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let mc = currentFaminance.mainCategories[mainCategoryKeys[indexPath.row]]
         cell.statusNameLabel.text = mc?.name
         cell.targetAmount = Float(mc?.targetAmount ?? 0)
-        cell.realAmount = Float(mc?.getSum() ?? 0)
+        
+        let balance = Float(mc?.getSum() ?? 0)
+        cell.realAmount = balance
+        if mc?.inOut == "収入" {
+            income += Int(balance)
+        } else {
+            outgo += Int(balance)
+        }
         
         // chartColorListのリストをループで使い回します。
         cell.statusFrontBarView.layer.backgroundColor = CurrentData.chartColorList[indexPath.row % CurrentData.chartColorList.count].cgColor
@@ -112,6 +143,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let mainCategoryPieChartViewController = storyboard.instantiateViewController(withIdentifier: "MainCategoryDetailsController") as! MainCategoryDetailsController
         mainCategoryPieChartViewController.currentDate = self.currentDate
+        
         mainCategoryPieChartViewController.mainCategory = currentFaminance.mainCategories[mainCategoryKeys[indexPath.row]]?.getAtMonth(date: currentDate)
         mainCategoryPieChartViewController.myBanks = CurrentData.faminance.myBanks
         

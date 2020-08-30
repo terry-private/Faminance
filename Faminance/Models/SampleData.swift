@@ -30,7 +30,7 @@ struct SampleData{
         let myBanks: [String: Any] = [
             "bid001": [
                 "id": "bid001",
-                "name": "照仁の三井住友",
+                "name": "生活費用の三井住友",
                 "initialAmount": 1000000,
                 "remark": "生活費用の口座"
             
@@ -44,14 +44,14 @@ struct SampleData{
             ],
             "bid003": [
                 "id": "bid003",
-                "name": "知恵のゆうちょ",
+                "name": "貯金用のゆうちょ",
                 "initialAmount": 1000000,
                 "remark": "貯金用の口座"
             
             ],
             "bid004": [
                 "id": "bid004",
-                "name": "タンス預金",
+                "name": "ブタの預金箱",
                 "initialAmount": 1000000,
                 "remark": "お祝いなど"
             
@@ -148,6 +148,30 @@ struct SampleData{
                 "remark": "食材とか関スーにて"
             ]
         ]
+        let cashTransactions05: [String: Any] = [
+            "cid009": [
+                "id": "cid009",
+                "inOut": "収入",
+                "amount": 50000,
+                "mainCategoryId": "mid003",
+                "subCategoryId": "sid005",
+                "bankId": "bid001",
+                "date": Date.current,
+                "memo": ""
+            ]
+        ]
+        let cashTransactions06: [String: Any] = [
+            "cid010": [
+                "id": "cid010",
+                "inOut": "収入",
+                "amount": 20000,
+                "mainCategoryId": "mid003",
+                "subCategoryId": "sid006",
+                "bankId": "bid001",
+                "date": Date.current,
+                "memo": ""
+            ]
+        ]
         
         
         let subCategories01:[String: Any] = [
@@ -204,6 +228,22 @@ struct SampleData{
             ]
         ]
         
+        let subCategories03: [String: Any] = [
+            "sid005": [
+                "id": "sid005",
+                "name": "夫の給料",
+                "memo": "",
+                "cashTransactions": cashTransactions05
+            ],
+            "sid006": [
+                "id": "sid006",
+                "name": "嫁の給料",
+                "memo": "",
+                "cashTransactions": cashTransactions06
+            ]
+            
+        ]
+        
         
         
         let mainCategories: [String: Any] = [
@@ -222,6 +262,14 @@ struct SampleData{
                 "targetAmount": 85000,
                 "remark": "",
                 "subCategories": subCategories02
+            ],
+            "mid003": [
+                "id": "mid004",
+                "name": "収入（生活費）",
+                "inOut": "収入",
+                "targetAmount": 60000,
+                "memo": "",
+                "subCategories": subCategories03
             ]
         ]
         

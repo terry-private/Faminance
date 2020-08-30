@@ -101,7 +101,6 @@ class InputCalculatorViewController: UIViewController, SheetContentHeightModifia
             numberLabel.text = amount
         } else {
             setDecimalString(Float(amount) ?? 0)
-            
         }
     }
     func setDecimalString(_ amountFloat: Float) {
