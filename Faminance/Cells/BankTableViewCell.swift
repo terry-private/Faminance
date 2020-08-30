@@ -13,6 +13,7 @@ class BankTableViewCell: UITableViewCell {
     @IBOutlet weak var bankNameLabel: UILabel!
     @IBOutlet weak var latestBalanceLabel: UILabel!
     
+    @IBOutlet weak var bankColorView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

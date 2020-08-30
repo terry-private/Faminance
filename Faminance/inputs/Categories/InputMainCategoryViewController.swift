@@ -81,7 +81,7 @@ extension InputMainCategoryViewController: UITableViewDelegate, UITableViewDataS
         inputSubCategoryViewController.mainCategory = CurrentData.faminance.mainCategoryAtIndex(indexPath.row)
         inputSubCategoryViewController.inputSubCategoryViewControllerDelegate = self
         
-        navigationController?.navigationBar.barTintColor = .rgba(red:26,green:188, blue:156 ,alpha:1)
+        navigationController?.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
         navigationController?.pushViewController(inputSubCategoryViewController, animated: true)
         
     }

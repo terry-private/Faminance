@@ -21,7 +21,7 @@ class MainCategoryDetailsController: UIViewController {
     private let cellId = "cellId"
     
     
-    private let chartUiColorPallete: [UIColor] = [
+    var chartUiColorPallete: [UIColor] = [
         UIColor.rgb(red: 46, green: 204, blue: 113),//緑
         UIColor.rgb(red: 243, green: 156, blue: 18),//オレンジ
         UIColor.rgb(red: 52, green: 152, blue: 219),//青
@@ -38,11 +38,11 @@ class MainCategoryDetailsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPieChartView()
+        setUpPieChartView()
         setUpCashTransactionTableView()
     }
         
-    private func setupPieChartView() {
+    func setUpPieChartView() {
         
         if self.mainCategory == nil { return }
         //mainCategoryNavigationItem.title = mainCategory!.name + "の内訳"

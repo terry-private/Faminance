@@ -10,27 +10,11 @@ import UIKit
 import Charts
 
 class HomeViewController: UIViewController {
-    //    rgba(26,188,156 ,1) ターコイズ
-    //    rgba(46,204,113 ,1) 緑
-    //    rgba(52,152,219 ,1) 青
-    //    rgba(155,89,182 ,1) 紫
-    //    rgba(52,73,94 ,1)   黒
-    //    rgba(241,196,15 ,1) 黄色
-    //    rgba(243,156,18 ,1) オレンジ
-    //    rgba(231,76,60 ,1)  赤
-    //    rgba(236,240,241 ,1)白
-    //    rgba(149,165,166 ,1)グレー
-    private let chartUiColorPallete: [UIColor] = [
-        UIColor.rgb(red: 46, green: 204, blue: 113),//緑
-        UIColor.rgb(red: 243, green: 156, blue: 18),//オレンジ
-        UIColor.rgb(red: 52, green: 152, blue: 219),//青
-        UIColor.rgb(red: 241, green: 196, blue: 15),//黄
-        UIColor.rgb(red: 155, green: 89, blue: 182)//紫
-    ]
     
     private let cellId = "cellId"
     var version = CurrentData.faminance.version
     var mainCategoryKeys = [String](CurrentData.faminance.mainCategories.keys).sorted{$0 < $1}
+    var currentFaminance = CurrentData.faminance.getAtMonth(date: Date.current)
     var currentDate = Date.current {
         didSet{
             print("currentDate>didSet")
@@ -38,7 +22,6 @@ class HomeViewController: UIViewController {
             tableReload()
         }
     }
-    var currentFaminance = CurrentData.faminance.getAtMonth(date: Date.current)
 
     @IBOutlet weak var previousMonthButton: UIButton!
     @IBOutlet weak var nextMonthButton: UIButton!
@@ -48,29 +31,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
-        
     }
-    func setUpTable(){
-        mainCategoryTableView.delegate = self
-        mainCategoryTableView.dataSource = self
-        mainCategoryTableView.register(UINib(nibName: "MainCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
-    }
+
     
-    func tableReload(){
-        mainCategoryKeys.removeAll()
-        mainCategoryTableView.reloadData()
-        DispatchQueue.main.asyncAfter(deadline: .now()){
-            self.currentFaminance = CurrentData.faminance.getAtMonth(date:self.currentDate)
-            self.mainCategoryKeys = [String](self.currentFaminance.mainCategories.keys).sorted{$0 < $1}
-            self.mainCategoryTableView.reloadData()
-            
-        }
-        print(mainCategoryKeys)
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         // 変更がある場合のみテーブルをリロード
         if version != CurrentData.faminance.version {
             tableReload()
@@ -79,16 +45,40 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        runAllBarAnimation()
+    }
+    
+    
+    /// viewDidLoad時のテーブル初期設定
+    private func setUpTable(){
+        mainCategoryTableView.delegate = self
+        mainCategoryTableView.dataSource = self
+        mainCategoryTableView.register(UINib(nibName: "MainCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
+    }
+
+    /// tableCellをリロード
+    func tableReload(){
+        mainCategoryKeys.removeAll()
+        mainCategoryTableView.reloadData()
+        self.currentFaminance = CurrentData.faminance.getAtMonth(date:self.currentDate)
+        self.mainCategoryKeys = [String](self.currentFaminance.mainCategories.keys).sorted{$0 < $1}
+        self.mainCategoryTableView.reloadData()
+        runAllBarAnimation()
+    }
+    
+    /// 全てのバーアニメーションを開始します。
+    func runAllBarAnimation(){
         for i in (0 ..< self.mainCategoryTableView.numberOfRows(inSection: 0)){
             let cell = self.mainCategoryTableView.cellForRow(at:IndexPath(row:i,section: 0)) as! MainCategoryTableViewCell
             cell.barAnimation()
         }
-        
     }
+    
     @IBAction func previousMonthButtonTapped(_ sender: Any) {
         currentDate = currentDate.added(month: -1)
     }
+    
+    /// 今月より先は選べないようにします。
     @IBAction func nextMonthButtonTapped(_ sender: Any) {
         if currentDate.month < Date.current.month {
             currentDate = currentDate.added(month:1)
@@ -105,16 +95,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainCategoryTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MainCategoryTableViewCell
-        let mc = currentFaminance.mainCategories[mainCategoryKeys[indexPath.row]]?.getAtMonth(date: currentDate)
+        let mc = currentFaminance.mainCategories[mainCategoryKeys[indexPath.row]]
         cell.statusNameLabel.text = mc?.name
         cell.targetAmount = Float(mc?.targetAmount ?? 0)
         cell.realAmount = Float(mc?.getSum() ?? 0)
         
-        cell.statusFrontBarView.layer.backgroundColor = chartUiColorPallete[indexPath.row % 5].cgColor
+        // chartColorListのリストをループで使い回します。
+        cell.statusFrontBarView.layer.backgroundColor = CurrentData.chartColorList[indexPath.row % CurrentData.chartColorList.count].cgColor
         
         return cell
     }
     
+    /// テーブル選択時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "MainCategoryDetails", bundle: nil)
         
@@ -122,18 +114,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         mainCategoryPieChartViewController.currentDate = self.currentDate
         mainCategoryPieChartViewController.mainCategory = currentFaminance.mainCategories[mainCategoryKeys[indexPath.row]]?.getAtMonth(date: currentDate)
         mainCategoryPieChartViewController.myBanks = CurrentData.faminance.myBanks
+        mainCategoryPieChartViewController.chartUiColorPallete = CurrentData.chartColorList
         
-        
+        // メインカテゴリーチャートと同じ色のナビゲーションバーを作ります。
         let nav = UINavigationController(rootViewController: mainCategoryPieChartViewController)
         nav.title = mainCategoryPieChartViewController.mainCategory?.name
-        nav.navigationBar.barTintColor = chartUiColorPallete[indexPath.row]
+        nav.navigationBar.barTintColor = CurrentData.chartColorList[indexPath.row]
         nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         mainCategoryPieChartViewController.navigationItem.title = mainCategoryPieChartViewController.mainCategory?.name
         
-        
-        
         self.present(nav, animated: true, completion: nil)
-        
-        
     }
 }

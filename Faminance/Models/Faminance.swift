@@ -8,6 +8,12 @@
 
 import Foundation
 
+
+/// 一番親となるモデルクラス
+/// Faminance
+///     mainCategories: [id: MainCategory]
+///     myBanks: [id: MyBanks]
+///     families: [id: User]
 class Faminance {
     let id: String
     var name: String
@@ -17,6 +23,16 @@ class Faminance {
     var memo: String
     var version: Int
     
+    /// Firebaseの情報をそのまま引数の辞書に代入
+    /// - Parameter dic: [
+    ///     id: String,
+    ///     name: String,
+    ///     faminies: [String: Any],
+    ///     myBanks: [String: Any],
+    ///     mainCategories: [String, Any],
+    ///     memo: String,
+    ///     version: Int
+    /// ]
     init(dic: [String: Any]) {
         self.id = dic["id"] as? String ?? ""
         self.name = dic["name"] as? String ?? ""
@@ -45,7 +61,6 @@ class Faminance {
     }
     
     func setMyBanksCashTransactions() {
-        
         for mcat in self.mainCategories.values {
             if let mAllCashTransactions = mcat.getAllCashTransactions() {
                 for ct in mAllCashTransactions.values {
@@ -81,6 +96,9 @@ class Faminance {
         self.myBanks[ct.bankId]?.cashTransactions[ct.id] = ct
     }
     
+    /// currentDateの年月のchashTransactionのみを集めたFaminanceを返します。
+    /// - Parameter date: currentDate
+    /// - Returns: currentDateの年月のchashTransactionのみを集めたFaminance
     func getAtMonth(date: Date) -> Faminance {
         var mcs = [String: MainCategory]()
         for (mcId,mc) in self.mainCategories {

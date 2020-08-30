@@ -15,34 +15,46 @@
                 <rect key="frame" x="0.0" y="0.0" width="458" height="116"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共通の財布" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRf-6P-xVd">
-                        <rect key="frame" x="178" y="15" width="102" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAt-xt-C6o">
+                        <rect key="frame" x="10" y="10" width="438" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共通の財布" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRf-6P-xVd">
+                                <rect key="frame" x="168" y="3" width="102" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cRf-6P-xVd" firstAttribute="centerX" secondItem="QAt-xt-C6o" secondAttribute="centerX" id="FcM-zd-tUi"/>
+                            <constraint firstAttribute="height" constant="30" id="Xdm-WW-UZN"/>
+                            <constraint firstItem="cRf-6P-xVd" firstAttribute="centerY" secondItem="QAt-xt-C6o" secondAttribute="centerY" id="fA3-RJ-kx4"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="残高" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Y9-ys-DcA">
-                        <rect key="frame" x="148" y="53" width="51" height="30"/>
+                        <rect key="frame" x="203.5" y="58" width="51" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥258,460" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfK-P2-IbG">
-                        <rect key="frame" x="229" y="54.5" width="104.5" height="27.5"/>
+                        <rect key="frame" x="274.5" y="59.5" width="104.5" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="cRf-6P-xVd" firstAttribute="centerX" secondItem="5Y9-ys-DcA" secondAttribute="trailing" constant="30" id="2ev-cQ-JnZ"/>
                     <constraint firstItem="KfK-P2-IbG" firstAttribute="centerY" secondItem="5Y9-ys-DcA" secondAttribute="centerY" id="9h8-p0-vCU"/>
-                    <constraint firstItem="cRf-6P-xVd" firstAttribute="top" secondItem="AlX-Z0-gjg" secondAttribute="top" constant="15" id="Bf2-DP-eUr"/>
-                    <constraint firstItem="cRf-6P-xVd" firstAttribute="centerX" secondItem="AlX-Z0-gjg" secondAttribute="centerX" id="Ncz-OS-V1K"/>
-                    <constraint firstItem="KfK-P2-IbG" firstAttribute="leading" secondItem="cRf-6P-xVd" secondAttribute="centerX" id="Ufm-ny-EPL"/>
-                    <constraint firstItem="5Y9-ys-DcA" firstAttribute="centerY" secondItem="AlX-Z0-gjg" secondAttribute="centerY" constant="10" id="YfG-YN-9Yt"/>
+                    <constraint firstItem="5Y9-ys-DcA" firstAttribute="centerY" secondItem="AlX-Z0-gjg" secondAttribute="centerY" constant="15" id="IME-mZ-5lW"/>
+                    <constraint firstItem="QAt-xt-C6o" firstAttribute="leading" secondItem="AlX-Z0-gjg" secondAttribute="leading" constant="10" id="Pco-bj-fOA"/>
+                    <constraint firstItem="KfK-P2-IbG" firstAttribute="leading" secondItem="5Y9-ys-DcA" secondAttribute="trailing" constant="20" id="R9y-WW-Rcl"/>
+                    <constraint firstItem="5Y9-ys-DcA" firstAttribute="centerX" secondItem="AlX-Z0-gjg" secondAttribute="centerX" id="TdQ-rR-DM2"/>
+                    <constraint firstAttribute="trailing" secondItem="QAt-xt-C6o" secondAttribute="trailing" constant="10" id="eWS-mA-bDI"/>
+                    <constraint firstItem="QAt-xt-C6o" firstAttribute="top" secondItem="AlX-Z0-gjg" secondAttribute="top" constant="10" id="tim-4E-viC"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,6 +65,7 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="bankColorView" destination="QAt-xt-C6o" id="Svb-2l-HQt"/>
                 <outlet property="bankNameLabel" destination="cRf-6P-xVd" id="AQC-jA-xOU"/>
                 <outlet property="latestBalanceLabel" destination="KfK-P2-IbG" id="VyV-aA-eGb"/>
             </connections>

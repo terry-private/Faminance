@@ -9,20 +9,6 @@
 import UIKit
 
 class BankViewController: UIViewController {
-    private let bankUiColorPallete: [UIColor] = [
-        UIColor.rgba(red: 46, green: 204, blue: 113, alpha: 0.8),//緑
-        UIColor.rgba(red: 243, green: 156, blue: 18, alpha: 0.8),//オレンジ
-        UIColor.rgba(red: 52, green: 152, blue: 219, alpha: 0.8),//青
-        UIColor.rgba(red: 241, green: 196, blue: 15, alpha: 0.8),//黄
-        UIColor.rgba(red: 155, green: 89, blue: 182, alpha: 0.8)//紫
-    ]
-    private let selectedUiColorPallete: [UIColor] = [
-        UIColor.rgba(red: 46/3*2, green: 204/3*2, blue: 113/3*2, alpha: 1),//緑
-        UIColor.rgba(red: 243/3*2, green: 156/3*2, blue: 18/3*2, alpha: 1),//オレンジ
-        UIColor.rgba(red: 52/3*2, green: 152/3*2, blue: 219/3*2, alpha: 1),//青
-        UIColor.rgba(red: 241/3*2, green: 196/3*2, blue: 15/3*2, alpha: 1),//黄
-        UIColor.rgba(red: 155/3*2, green: 89/3*2, blue: 182/3*2, alpha: 1)//紫
-    ]
     private let cellId = "cellId"
     
     var currentVersion = CurrentData.faminance.version
@@ -77,8 +63,8 @@ extension BankViewController: UITableViewDelegate, UITableViewDataSource {
         cell.bankNameLabel.text = bk?.name
         cell.latestBalanceLabel.text = formatter.string(from: NSNumber(value: bk?.latestBalance() ?? 0))
         
-        cell.selectedBackgroundView?.backgroundColor = UIColor.rgba(red:0, green: 0, blue: 0, alpha: 0.3)
-        cell.backgroundColor = bankUiColorPallete[indexPath.row % 5]
+        cell.selectedBackgroundView?.backgroundColor = UIColor.rgb(red:0, green: 0, blue: 0, alpha: 0.1)
+        cell.bankColorView.backgroundColor = CurrentData.chartColorList[indexPath.row % CurrentData.chartColorList.count]
         return cell
     }
     

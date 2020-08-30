@@ -34,7 +34,7 @@ class RecordViewController : UIViewController {
         inputCalculaorViewController.setAmount(fN)
         inputCalculaorViewController.inputCalculatorViewControllerDelegate = self
         let nav = BottomHalfModalNavigationController(rootViewController: inputCalculaorViewController)
-        nav.navigationBar.barTintColor = .rgba(red:26,green:188, blue:156 ,alpha:1)
+        nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
         
         self.present(nav, animated: true, completion: nil)
     }
@@ -51,7 +51,7 @@ class RecordViewController : UIViewController {
         inputCalendarViewController.currentDate = date ?? Date.current
         
         let nav = BottomHalfModalNavigationController(rootViewController: inputCalendarViewController)
-        nav.navigationBar.barTintColor = .rgba(red:26,green:188, blue:156 ,alpha:1)
+        nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
         self.present(nav, animated: true, completion: nil)
     }
     @IBAction func categoryButtonTapped(_ sender: UIButton) {
@@ -61,7 +61,7 @@ class RecordViewController : UIViewController {
         inputMainCategoryViewController.inputMainCategoryViewControllerDelegate = self
 
         let nav = inputMainCategoryViewController.navigationController ?? BottomHalfModalNavigationController(rootViewController: inputMainCategoryViewController)
-        nav.navigationBar.barTintColor = .rgba(red:26,green:188, blue:156 ,alpha:1)
+        nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
         self.present(nav, animated: true, completion: nil)
     }
     
@@ -72,7 +72,7 @@ class RecordViewController : UIViewController {
         inputBankViewController.inputBankViewControllerDelegate = self
 
         let nav = inputBankViewController.navigationController ?? BottomHalfModalNavigationController(rootViewController: inputBankViewController)
-        nav.navigationBar.barTintColor = .rgba(red:26,green:188, blue:156 ,alpha:1)
+        nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
         self.present(nav, animated: true, completion: nil)
         
     }
