@@ -80,7 +80,7 @@ class HomeViewController: UIViewController {
     
     /// 今月より先は選べないようにします。
     @IBAction func nextMonthButtonTapped(_ sender: Any) {
-        if currentDate.month < Date.current.month {
+        if currentDate.year * 100 + currentDate.month < Date.current.year * 100 + Date.current.month {
             currentDate = currentDate.added(month:1)
         }
     }
