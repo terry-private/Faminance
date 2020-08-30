@@ -100,14 +100,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERP-oE-vEv">
-                                <rect key="frame" x="20" y="107.5" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="3EL-Id-b1I"/>
-                                    <constraint firstAttribute="width" constant="25" id="wep-xc-W8r"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERP-oE-vEv">
+                                <rect key="frame" x="20" y="88" width="136" height="64"/>
                                 <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" image="arrowtriangle.left" catalog="system"/>
+                                <state key="normal" image="arrowtriangle.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
                                 <connections>
                                     <action selector="previousMonthButtonTapped:" destination="h3w-eI-rbN" eventType="touchUpInside" id="PZd-Vt-b24"/>
                                 </connections>
@@ -118,16 +116,13 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkI-np-6EN">
-                                <rect key="frame" x="369" y="107.5" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="Fap-Ao-Ke7"/>
-                                    <constraint firstAttribute="height" constant="25" id="YGd-JE-HWq"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkI-np-6EN">
+                                <rect key="frame" x="258" y="88" width="136" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" image="arrowtriangle.right" catalog="system">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
                                 <connections>
                                     <action selector="nextMonthButtonTapped:" destination="h3w-eI-rbN" eventType="touchUpInside" id="Kql-4J-b3x"/>
@@ -141,16 +136,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dRE-xW-IEX" firstAttribute="trailing" secondItem="MkI-np-6EN" secondAttribute="trailing" constant="20" id="Bkk-lD-TTm"/>
+                            <constraint firstItem="zN8-Y8-SjD" firstAttribute="leading" secondItem="ERP-oE-vEv" secondAttribute="trailing" id="4Zd-qr-Ddb"/>
+                            <constraint firstItem="MkI-np-6EN" firstAttribute="top" secondItem="dRE-xW-IEX" secondAttribute="top" id="BR3-oQ-hzC"/>
+                            <constraint firstItem="ERP-oE-vEv" firstAttribute="top" secondItem="dRE-xW-IEX" secondAttribute="top" id="Crk-5p-UJK"/>
                             <constraint firstItem="dRE-xW-IEX" firstAttribute="trailing" secondItem="PhM-vl-XUY" secondAttribute="trailing" id="P17-C6-Kjx"/>
-                            <constraint firstItem="ERP-oE-vEv" firstAttribute="centerY" secondItem="zN8-Y8-SjD" secondAttribute="centerY" id="QpL-RF-LdD"/>
+                            <constraint firstItem="dRE-xW-IEX" firstAttribute="trailing" secondItem="MkI-np-6EN" secondAttribute="trailing" constant="20" id="QeM-Mx-4Lb"/>
                             <constraint firstItem="PhM-vl-XUY" firstAttribute="top" secondItem="zN8-Y8-SjD" secondAttribute="bottom" constant="20" id="SLm-15-bKF"/>
+                            <constraint firstItem="PhM-vl-XUY" firstAttribute="top" secondItem="ERP-oE-vEv" secondAttribute="bottom" id="Tzl-1H-aJU"/>
                             <constraint firstItem="dRE-xW-IEX" firstAttribute="bottom" secondItem="PhM-vl-XUY" secondAttribute="bottom" id="Vg5-ug-pKO"/>
-                            <constraint firstItem="MkI-np-6EN" firstAttribute="centerY" secondItem="zN8-Y8-SjD" secondAttribute="centerY" id="YEf-GI-6A0"/>
+                            <constraint firstItem="MkI-np-6EN" firstAttribute="leading" secondItem="zN8-Y8-SjD" secondAttribute="trailing" id="ZF1-K9-QBV"/>
                             <constraint firstItem="PhM-vl-XUY" firstAttribute="leading" secondItem="dRE-xW-IEX" secondAttribute="leading" id="all-yY-Yyq"/>
                             <constraint firstItem="zN8-Y8-SjD" firstAttribute="top" secondItem="dRE-xW-IEX" secondAttribute="top" constant="20" id="ggR-Uf-bHc"/>
+                            <constraint firstItem="PhM-vl-XUY" firstAttribute="top" secondItem="MkI-np-6EN" secondAttribute="bottom" id="hZM-bn-Dk8"/>
                             <constraint firstItem="zN8-Y8-SjD" firstAttribute="centerX" secondItem="2Lw-NL-Xlp" secondAttribute="centerX" id="iJi-AJ-ERP"/>
-                            <constraint firstItem="ERP-oE-vEv" firstAttribute="leading" secondItem="dRE-xW-IEX" secondAttribute="leading" constant="20" id="wBw-Fm-JLN"/>
+                            <constraint firstItem="ERP-oE-vEv" firstAttribute="leading" secondItem="dRE-xW-IEX" secondAttribute="leading" constant="20" id="sGV-5j-AqO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dRE-xW-IEX"/>
                     </view>
@@ -245,7 +244,7 @@
                                 <rect key="frame" x="20" y="327" width="384" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="カテゴリー" image="folder.circle" catalog="system">
+                                <state key="normal" title=" カテゴリー" image="folder.circle" catalog="system">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
@@ -257,7 +256,7 @@
                                 <rect key="frame" x="20" y="381" width="384" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="口座、財布" image="yensign.circle" catalog="system">
+                                <state key="normal" title=" 口座、財布" image="yensign.circle" catalog="system">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>

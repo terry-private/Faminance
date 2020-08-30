@@ -114,7 +114,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         mainCategoryPieChartViewController.currentDate = self.currentDate
         mainCategoryPieChartViewController.mainCategory = currentFaminance.mainCategories[mainCategoryKeys[indexPath.row]]?.getAtMonth(date: currentDate)
         mainCategoryPieChartViewController.myBanks = CurrentData.faminance.myBanks
-        mainCategoryPieChartViewController.chartUiColorPallete = CurrentData.chartColorList
+        
+        var pieChartColorList = [UIColor]()
+        for i in (0 ..< CurrentData.chartColorList.count) {
+            pieChartColorList.append(CurrentData.chartColorList[(i + indexPath.row) % CurrentData.chartColorList.count])
+        }
+        mainCategoryPieChartViewController.chartUiColorPallete = pieChartColorList
         
         // メインカテゴリーチャートと同じ色のナビゲーションバーを作ります。
         let nav = UINavigationController(rootViewController: mainCategoryPieChartViewController)

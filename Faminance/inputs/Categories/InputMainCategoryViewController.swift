@@ -56,6 +56,8 @@ final class InputMainCategoryViewController: UIViewController, SheetContentHeigh
     @objc private func close() {
         dismiss(animated: true, completion: nil)
     }
+    /// カテゴリーの確定
+    /// - Parameter dic: メインカテゴリー、サブカテゴリーのkey, nema　を辞書で渡します。
     func fixCategory(_ dic: [String: String]){
         inputMainCategoryViewControllerDelegate?.fixCategory(dic)
         dismiss(animated: true, completion: nil)

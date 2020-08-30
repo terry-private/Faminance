@@ -12,7 +12,6 @@ import BottomHalfModal
 
 class RecordViewController : UIViewController {
     
-    
     @IBOutlet weak var inOutSegmentedControl: UISegmentedControl!
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var amountButton: UIButton!
@@ -25,6 +24,7 @@ class RecordViewController : UIViewController {
     var mainCategoryId: String = ""
     var subCategoryId: String = ""
     var bankId: String = ""
+    var alertController: UIAlertController! // error massage dialog
     
     @IBAction func amountButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard.init(name: "InputCalculatorView", bundle: nil)
@@ -38,6 +38,7 @@ class RecordViewController : UIViewController {
         
         self.present(nav, animated: true, completion: nil)
     }
+    
     @IBAction func dateButtonTapped(_ sender: UIButton) {
         let dateFormatter = DateFormatter.current("yyyy'年'M'月'd'日'")
         let date = dateFormatter.date(from: self.dateButton.titleLabel?.text ?? "")
@@ -54,6 +55,7 @@ class RecordViewController : UIViewController {
         nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
         self.present(nav, animated: true, completion: nil)
     }
+    
     @IBAction func categoryButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard.init(name: "InputMainCategory", bundle: nil)
 
@@ -88,18 +90,20 @@ class RecordViewController : UIViewController {
         memoTextField.layer.borderWidth = 1
         memoTextField.layer.borderColor = UIColor.lightGray.cgColor
         fixButton.layer.cornerRadius = 8
+        fixButton.layer.borderWidth = 2
+        fixButton.layer.borderColor = UIColor.lightGray.cgColor
         memoTextField.attributedPlaceholder = NSAttributedString(string: "メモ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         clear()
     }
+    
     func clear(){
         dateButton.setTitle(Date.current.longDate(),for: .normal)
         amountButton.setTitle("¥0",for: .normal)
-        categoryButton.setTitle("カテゴリー", for: .normal)
+        categoryButton.setTitle(" カテゴリー", for: .normal)
         categoryButton.setTitleColor(.lightGray, for: .normal)
-        bankButton.setTitle("口座、財布", for: .normal)
+        bankButton.setTitle(" 口座、財布", for: .normal)
         bankButton.setTitleColor(.lightGray, for: .normal)
         memoTextField.text = ""
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -111,6 +115,7 @@ class RecordViewController : UIViewController {
     @IBAction func memoTextFieldTappedDone(_ sender: Any) {
         self.view.endEditing(true)
     }
+
     
 // ---------------------------------------
 // 確定ボタン
@@ -119,11 +124,20 @@ class RecordViewController : UIViewController {
         let newCtId = "ct\(CurrentData.faminance.getAllCashTransactions()?.count ?? 0)"
         let dateFormatter = DateFormatter.current("yyyy'年'M'月'd'日'")
         let date = dateFormatter.date(from: self.dateButton.titleLabel?.text ?? Date.current.longDate())
+        var errorMessage: [String] = [String]()
+        let amount = Int(amountButton.titleLabel?.text?.replace("¥", "").replace(",", "") ?? "0") ?? 0
+        
+        // バリデーション
+        if amount < 0 { errorMessage.append("金額は￥0以上にしてください。")}
+        if mainCategoryId == "" || subCategoryId == "" { errorMessage.append("カテゴリーを選択してください。") }
+        if bankId == "" { errorMessage.append("口座、財布を選択してください。") }
+        if errorMessage.count > 0 {alert(message: errorMessage.joined(separator: "\n")); return}
+        
         
         CurrentData.faminance.addCashTransaction(CashTransaction(dic:[
             "id": newCtId,
             "inOut": "支出",
-            "amount": Int(amountButton.titleLabel?.text?.replace("¥", "").replace(",", "") ?? "0") ?? 0,
+            "amount": amount,
             "mainCategoryId": mainCategoryId,
             "subCategoryId": subCategoryId,
             "bankId": bankId,
@@ -132,6 +146,19 @@ class RecordViewController : UIViewController {
         ]))
         CurrentData.faminance.version += 1
         clear()
+    }
+    
+    /// 確定ボタンを押した時に足りない情報がある場合のエラ〜メッセージダイアログを表示
+    /// - Parameters:
+    ///   - message: エラーメッセージ
+    func alert(message:String) {
+        alertController = UIAlertController(title: "入力エラー",
+                                   message: message,
+                                   preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK",
+                                       style: .default,
+                                       handler: nil))
+        present(alertController, animated: true)
     }
     
 }
@@ -147,14 +174,14 @@ extension RecordViewController: InputCalendarViewControllerDelegate, InputCalcul
     }
     
     func fixCategory(_ dic: [String : String]) {
-        categoryButton.setTitle((dic["mainCategoryName"] ?? "") + " > " + (dic["subCategoryName"] ?? ""), for: .normal)
+        categoryButton.setTitle(" \(dic["mainCategoryName"] ?? "") > \(dic["subCategoryName"] ?? "")", for: .normal)
         mainCategoryId = dic["mainCategoryId"] ?? ""
         subCategoryId = dic["subCategoryId"] ?? ""
         categoryButton.setTitleColor(.darkGray, for: .normal)
     }
     
     func fixBank(_ dic: [String : String]) {
-        bankButton.setTitle(dic["bankName"] ?? "", for: .normal)
+        bankButton.setTitle(" " + (dic["bankName"] ?? ""), for: .normal)
         bankId = dic["bankId"] ?? ""
         bankButton.setTitleColor(.darkGray, for: .normal)
     }

@@ -18,9 +18,7 @@ class MainCategoryTableViewCell: UITableViewCell {
     @IBOutlet var statusFrontBarView: UIView!
     @IBOutlet var recentryMonyLabel: UILabel!
     @IBOutlet var remainingMonyLabel: UILabel!
-    
     @IBOutlet weak var targetMoneyLabel: UILabel!
-    
     @IBOutlet weak var statusFrontBarWidth: NSLayoutConstraint!
     
     

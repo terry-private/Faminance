@@ -20,7 +20,7 @@ class MainCategoryDetailsController: UIViewController {
     
     private let cellId = "cellId"
     
-    
+    var startColorIndex = 0
     var chartUiColorPallete: [UIColor] = [
         UIColor.rgb(red: 46, green: 204, blue: 113),//緑
         UIColor.rgb(red: 243, green: 156, blue: 18),//オレンジ
