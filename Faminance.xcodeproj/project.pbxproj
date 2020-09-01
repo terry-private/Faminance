@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0945098E24FE605800945941 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0945098D24FE605800945941 /* GoogleService-Info.plist */; };
+		0945099024FE667500945941 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0945098F24FE667500945941 /* SignUp.storyboard */; };
+		0945099224FE6A8600945941 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0945099124FE6A8600945941 /* SignUpViewController.swift */; };
 		0946824624EBECFE005A2EA3 /* UITableViewCell-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0946824524EBECFE005A2EA3 /* UITableViewCell-Extension.swift */; };
 		0946824A24EC0B4A005A2EA3 /* InputCalendarView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0946824924EC0B4A005A2EA3 /* InputCalendarView.storyboard */; };
 		0947E6EE24F20E9F00198D0F /* InputMainCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0947E6ED24F20E9F00198D0F /* InputMainCategoryViewController.swift */; };
@@ -74,6 +77,9 @@
 
 /* Begin PBXFileReference section */
 		075E7A7DAA5BA9F106784116 /* Pods-FaminanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaminanceTests.release.xcconfig"; path = "Target Support Files/Pods-FaminanceTests/Pods-FaminanceTests.release.xcconfig"; sourceTree = "<group>"; };
+		0945098D24FE605800945941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0945098F24FE667500945941 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		0945099124FE6A8600945941 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0946824524EBECFE005A2EA3 /* UITableViewCell-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell-Extension.swift"; sourceTree = "<group>"; };
 		0946824924EC0B4A005A2EA3 /* InputCalendarView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputCalendarView.storyboard; sourceTree = "<group>"; };
 		0947E6ED24F20E9F00198D0F /* InputMainCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMainCategoryViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 				09511EB724E8BE2000470C22 /* Assets.xcassets */,
 				09511EB924E8BE2000470C22 /* LaunchScreen.storyboard */,
 				09511EBC24E8BE2000470C22 /* Info.plist */,
+				0945098D24FE605800945941 /* GoogleService-Info.plist */,
 			);
 			path = Faminance;
 			sourceTree = "<group>";
@@ -260,6 +267,7 @@
 			children = (
 				09511EB424E8BE1F00470C22 /* Main.storyboard */,
 				09511EFE24E8E82800470C22 /* MainCategoryDetails.storyboard */,
+				0945098F24FE667500945941 /* SignUp.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -295,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				09511EDF24E8D19F00470C22 /* HomeViewController.swift */,
+				0945099124FE6A8600945941 /* SignUpViewController.swift */,
 				09511F0024E8E91100470C22 /* MainCategoryDetailsController.swift */,
 				09511F0A24E903F600470C22 /* BankViewController.swift */,
 				09511F0C24E9178900470C22 /* RecordViewController.swift */,
@@ -467,6 +476,8 @@
 				094A237B24F5394600AF3BA3 /* InputBank.storyboard in Resources */,
 				0947E6F924F2B2E800198D0F /* InputMainCategoryTableViewCell.xib in Resources */,
 				09511EB624E8BE1F00470C22 /* Main.storyboard in Resources */,
+				0945098E24FE605800945941 /* GoogleService-Info.plist in Resources */,
+				0945099024FE667500945941 /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +621,7 @@
 				0947E6EE24F20E9F00198D0F /* InputMainCategoryViewController.swift in Sources */,
 				094A237624F5341800AF3BA3 /* CurrentData.swift in Sources */,
 				09511EF024E8D5BA00470C22 /* MyBank.swift in Sources */,
+				0945099224FE6A8600945941 /* SignUpViewController.swift in Sources */,
 				09511F0324E8EA1800470C22 /* CashTransactionTableViewCell.swift in Sources */,
 				09511EF624E8D6E100470C22 /* SampleData.swift in Sources */,
 				09511F0924E9006D00470C22 /* BankTableViewCell.swift in Sources */,

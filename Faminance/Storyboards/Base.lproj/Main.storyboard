@@ -283,7 +283,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="voN-cV-g3r">
-                                <rect key="frame" x="0.0" y="276" width="414" height="32"/>
+                                <rect key="frame" x="20" y="276" width="374" height="32"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="支出"/>
@@ -292,7 +292,7 @@
                                 <color key="selectedSegmentTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5l-R0-pbL">
-                                <rect key="frame" x="20" y="327" width="384" height="34"/>
+                                <rect key="frame" x="20" y="327" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="　カテゴリー" image="folder.circle" catalog="system">
@@ -304,7 +304,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1L-wN-g5s">
-                                <rect key="frame" x="20" y="381" width="384" height="34"/>
+                                <rect key="frame" x="20" y="381" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="口座、財布" image="yensign.circle" catalog="system">
@@ -352,7 +352,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="T1L-wN-g5s" secondAttribute="trailing" constant="10" id="1Rq-Je-T2F"/>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="T1L-wN-g5s" secondAttribute="trailing" constant="20" id="1Rq-Je-T2F"/>
                             <constraint firstItem="T1L-wN-g5s" firstAttribute="top" secondItem="q5l-R0-pbL" secondAttribute="bottom" constant="20" id="9rg-eS-sz2"/>
                             <constraint firstItem="Uh5-7a-HHu" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" id="CVX-b3-5TN"/>
                             <constraint firstItem="6ia-sJ-Ofy" firstAttribute="top" secondItem="T1L-wN-g5s" secondAttribute="bottom" constant="20" id="CaR-8z-tao"/>
@@ -360,16 +360,16 @@
                             <constraint firstItem="T1L-wN-g5s" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="20" id="FJn-eS-kZv"/>
                             <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="6ia-sJ-Ofy" secondAttribute="trailing" constant="20" id="Lf9-i9-Rdh"/>
                             <constraint firstItem="q5l-R0-pbL" firstAttribute="top" secondItem="voN-cV-g3r" secondAttribute="bottom" constant="20" id="NuL-R2-Dy7"/>
-                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="q5l-R0-pbL" secondAttribute="trailing" constant="10" id="WIR-kL-p7M"/>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="q5l-R0-pbL" secondAttribute="trailing" constant="20" id="WIR-kL-p7M"/>
                             <constraint firstItem="f2a-dU-ubL" firstAttribute="top" secondItem="s9B-RA-kkJ" secondAttribute="top" constant="20" id="XJY-nT-QNY"/>
                             <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="f2a-dU-ubL" secondAttribute="trailing" id="b9a-sg-udc"/>
                             <constraint firstItem="q5l-R0-pbL" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="20" id="bzu-7S-7D6"/>
-                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="voN-cV-g3r" secondAttribute="trailing" id="eyH-km-hVI"/>
+                            <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="voN-cV-g3r" secondAttribute="trailing" constant="20" id="eyH-km-hVI"/>
                             <constraint firstItem="Uh5-7a-HHu" firstAttribute="top" secondItem="f2a-dU-ubL" secondAttribute="bottom" constant="20" id="f4w-EA-FAd"/>
                             <constraint firstItem="8By-YR-YTE" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="30" id="gWH-ci-9pe"/>
                             <constraint firstItem="KAY-1K-NwR" firstAttribute="top" secondItem="T1L-wN-g5s" secondAttribute="bottom" constant="20" id="kUj-ar-mPH"/>
                             <constraint firstItem="KAY-1K-NwR" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="22" id="lDW-T2-VzP"/>
-                            <constraint firstItem="voN-cV-g3r" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" id="oar-Kk-EDR"/>
+                            <constraint firstItem="voN-cV-g3r" firstAttribute="leading" secondItem="s9B-RA-kkJ" secondAttribute="leading" constant="20" id="oar-Kk-EDR"/>
                             <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="8By-YR-YTE" secondAttribute="trailing" constant="30" id="q0B-5x-b2R"/>
                             <constraint firstItem="8By-YR-YTE" firstAttribute="top" secondItem="6ia-sJ-Ofy" secondAttribute="bottom" constant="30" id="vPj-Dt-niP"/>
                             <constraint firstItem="s9B-RA-kkJ" firstAttribute="trailing" secondItem="Uh5-7a-HHu" secondAttribute="trailing" id="ytw-1B-iae"/>

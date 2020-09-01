@@ -85,6 +85,7 @@ class RecordViewController : UIViewController {
         super.viewDidLoad()
         setUp()
     }
+    
     func setUp(){
         memoTextField.layer.cornerRadius = 8
         memoTextField.layer.borderWidth = 1
@@ -96,13 +97,18 @@ class RecordViewController : UIViewController {
         clear()
     }
     
+    
+    /// 入力内容を初期状態に戻します。
     func clear(){
         dateButton.setTitle(Date.current.longDate(),for: .normal)
         amountButton.setTitle("¥0",for: .normal)
         categoryButton.setTitle(" カテゴリー", for: .normal)
         categoryButton.setTitleColor(.lightGray, for: .normal)
+        mainCategoryId = ""
+        subCategoryId = ""
         bankButton.setTitle(" 口座、財布", for: .normal)
         bankButton.setTitleColor(.lightGray, for: .normal)
+        bankId = ""
         memoTextField.text = ""
     }
     

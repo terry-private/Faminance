@@ -39,6 +39,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         currentDate = Date.current
         setUpTable()
+        
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        self.present(signUpViewController, animated: true, completion: nil)
     }
 
     
