@@ -67,7 +67,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 <connections>
-                                                    <action selector="passwordTextFieldTappedDone:" destination="7qL-nq-qb9" eventType="editingDidEnd" id="lxR-UD-6c3"/>
+                                                    <action selector="passwordTextFieldTappedDone:" destination="7qL-nq-qb9" eventType="editingDidEndOnExit" id="QgQ-FU-RGp"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -88,7 +88,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 <connections>
-                                                    <action selector="usenameTextFieldTappedDone:" destination="7qL-nq-qb9" eventType="editingDidEnd" id="RjB-Kz-Iuw"/>
+                                                    <action selector="usenameTextFieldTappedDone:" destination="7qL-nq-qb9" eventType="editingDidEndOnExit" id="YfE-Vk-Q9U"/>
                                                 </connections>
                                             </textField>
                                         </subviews>

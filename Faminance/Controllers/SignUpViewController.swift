@@ -6,8 +6,9 @@
 //  Copyright © 2020 若江照仁. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Firebase
+
 
 class SignUpViewController: UIViewController {
     
@@ -26,6 +27,9 @@ class SignUpViewController: UIViewController {
         mailTextField.delegate = self
         passwordTextField.delegate = self
         usernameTextField.delegate = self
+        
+        validation()
+        
     }
     
     private func setDesign(){
@@ -50,7 +54,104 @@ class SignUpViewController: UIViewController {
         
         registerButton.layer.cornerRadius = 10
         
+        
+        // profileImageButtonをタップ時のイベントを作成
         profileImageButton.addTarget(self, action: #selector(tappedProfileImageButton), for: .touchUpInside)
+        
+        // registerButtonタップ時のイベントを作成
+        registerButton.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
+    }
+    
+    // rofileImageButtonをタップ時のアクション
+    @objc private func tappedProfileImageButton() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    // registerButtonタップ時のアクション
+    @objc private func tappedRegisterButton() {
+        guard let image = profileImageButton.imageView?.image else { return }
+        guard let uploadImage = image.jpegData(compressionQuality: 0.3) else { return }
+        
+        let fileName = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("profile_image").child(fileName)
+        
+        storageRef.putData(uploadImage, metadata: nil) { (metadata, err) in
+            if let err = err {
+                print("Firestorageへの情報の保存に失敗しました。\(err)")
+                return
+            }
+            print("Firestorageへの情報の保存に成功しました。")
+            storageRef.downloadURL { ( url, err) in
+                if let err = err {
+                    print("Firestorageからのダウンロードに失敗しました。\(err)")
+                    return
+                }
+                
+                guard let urlString = url?.absoluteString else { return }
+                print("urlString: ", urlString)
+                self.createdUserToFirestore(urlString)
+            }
+        }
+    }
+    
+    /// FireAuthに認証情報を保存
+    /// Firestoreにユーザー情報を保存
+    /// - Parameter profileImageUrl: Firestorageに保存した画像のURL
+    private func createdUserToFirestore(_ profileImageUrl: String) {
+        guard let mail = mailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().createUser(withEmail: mail, password: password) { (res, err) in
+            if let err = err {
+                print("認証情報の保存に失敗しました。\(err)")
+                return
+            }
+            
+            guard let uid = res?.user.uid else { return }
+            let docData = [
+                "mail": mail,
+                "password": password,
+                "createdAt": Timestamp(),
+                "profileImageURL": profileImageUrl
+            ] as [String: Any]
+            Firestore.firestore().collection("users").document(uid).setData(docData) { (err) in
+                if let err = err {
+                    print("データベースへの保存に失敗しました。\(err)")
+                    return
+                }
+                print("Firestoreへの情報の保存が成功しました。")
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    /// 入力値が正しい場合のみ確定ボタンを有効にします。
+    func validation() {
+        let emailValidation = validateEmail(mailTextField.text ?? "")
+        let passwordValidation = passwordTextField.text?.count ?? 0 >= 6
+        let usernameIsEmpty = usernameTextField.text?.isEmpty ?? false
+        
+        if !emailValidation || !passwordValidation || usernameIsEmpty {
+            registerButton.isEnabled = false
+            registerButton.backgroundColor = .rgb(red: 100, green: 100, blue: 100)
+        } else {
+            registerButton.isEnabled = true
+            registerButton.backgroundColor = .rgb(red: 26, green: 188, blue: 156)
+            
+        }
+    }
+    
+    /// mailアドレスとして正しいかどうか
+    /// - Parameter enteredEmail: メールアドレス String型
+    /// - Returns: Bool型で返します。
+    func validateEmail(_ enteredEmail:String) -> Bool {
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluate(with: enteredEmail)
     }
     
     // 各テキストフィールドの完了ボタン押下時アクション
@@ -64,14 +165,7 @@ class SignUpViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    // プロフィール画像ボタン押下時アクション
-    @objc private func tappedProfileImageButton() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.allowsEditing = true
-        
-        self.present(imagePickerController, animated: true, completion: nil)
-    }
+    
     
 }
 
@@ -94,18 +188,6 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
 
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        print(mailTextField.text)
-        let emailIsEmpth = mailTextField.text?.isEmpty ?? false
-        let passwordIsEmpty = passwordTextField.text?.isEmpty ?? false
-        let usernameIsEmpty = usernameTextField.text?.isEmpty ?? false
-        
-        if emailIsEmpth || passwordIsEmpty || usernameIsEmpty {
-            registerButton.isEnabled = false
-            registerButton.backgroundColor = .rgb(red: 100, green: 100, blue: 100)
-        } else {
-            registerButton.isEnabled = true
-            registerButton.backgroundColor = .rgb(red: 26, green: 188, blue: 156)
-            
-        }
+        self.validation()
     }
 }
