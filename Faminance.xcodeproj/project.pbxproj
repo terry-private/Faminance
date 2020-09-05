@@ -209,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				09511EAD24E8BE1F00470C22 /* Faminance */,
+				094852142503601200111C5E /* README.md */,
 				09511EC424E8BE2000470C22 /* FaminanceTests */,
 				09511ECF24E8BE2000470C22 /* FaminanceUITests */,
 				09511EAC24E8BE1F00470C22 /* Products */,
@@ -243,7 +244,6 @@
 				09511EB924E8BE2000470C22 /* LaunchScreen.storyboard */,
 				09511EBC24E8BE2000470C22 /* Info.plist */,
 				0945098D24FE605800945941 /* GoogleService-Info.plist */,
-				094852142503601200111C5E /* README.md */,
 			);
 			path = Faminance;
 			sourceTree = "<group>";
