@@ -36,7 +36,7 @@ class RecordViewController : UIViewController {
         let nav = BottomHalfModalNavigationController(rootViewController: inputCalculaorViewController)
         nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
         
-        self.present(nav, animated: true, completion: nil)
+        self.presentBottomHalfModal(nav, animated: true, completion: nil)
     }
     
     @IBAction func dateButtonTapped(_ sender: UIButton) {
@@ -53,7 +53,7 @@ class RecordViewController : UIViewController {
         
         let nav = BottomHalfModalNavigationController(rootViewController: inputCalendarViewController)
         nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
-        self.present(nav, animated: true, completion: nil)
+        self.presentBottomHalfModal(nav, animated: true, completion: nil)
     }
     
     @IBAction func categoryButtonTapped(_ sender: UIButton) {
@@ -64,7 +64,7 @@ class RecordViewController : UIViewController {
 
         let nav = inputMainCategoryViewController.navigationController ?? BottomHalfModalNavigationController(rootViewController: inputMainCategoryViewController)
         nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
-        self.present(nav, animated: true, completion: nil)
+        self.presentBottomHalfModal(nav, animated: true, completion: nil)
     }
     
     @IBAction func bankButtonTapped(_ sender: Any) {
@@ -75,7 +75,7 @@ class RecordViewController : UIViewController {
 
         let nav = inputBankViewController.navigationController ?? BottomHalfModalNavigationController(rootViewController: inputBankViewController)
         nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
-        self.present(nav, animated: true, completion: nil)
+        self.presentBottomHalfModal(nav, animated: true, completion: nil)
         
     }
     
@@ -94,9 +94,18 @@ class RecordViewController : UIViewController {
         fixButton.layer.borderWidth = 2
         fixButton.layer.borderColor = UIColor.lightGray.cgColor
         memoTextField.attributedPlaceholder = NSAttributedString(string: "メモ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        let clearButton = UIBarButtonItem(title: "clear", style: .plain, target: self, action: #selector(tappedClearButton))
+        clearButton.tintColor = .white
+        
+        navigationItem.leftBarButtonItem = clearButton
         clear()
     }
     
+    
+    /// clearButtonタップ時のアクション
+    @objc private func tappedClearButton() {
+        clear()
+    }
     
     /// 入力内容を初期状態に戻します。
     func clear(){

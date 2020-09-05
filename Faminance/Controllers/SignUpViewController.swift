@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController {
         registerButton.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
     }
     
-    // rofileImageButtonをタップ時のアクション
+    // profileImageButtonをタップ時のアクション
     @objc private func tappedProfileImageButton() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self

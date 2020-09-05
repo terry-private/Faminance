@@ -12,12 +12,14 @@ class User {
     let id: String
     let name: String
     let email: String
+    var profileImageURL: String = ""
     var createdAt = Date.current
     
     init(dic: [String: Any]) {
-        self.id = dic["id"] as? String ?? ""
-        self.name = dic["name"] as? String ?? ""
-        self.email = dic["email"] as? String ?? ""
-        self.createdAt = dic["createdAt"] as? Date ?? Date.current
+        id = dic["id"] as? String ?? ""
+        name = dic["name"] as? String ?? ""
+        email = dic["email"] as? String ?? ""
+        profileImageURL = dic["profileImageURL"] as? String ?? ""
+        createdAt = dic["createdAt"] as? Date ?? Date.current
     }
 }
