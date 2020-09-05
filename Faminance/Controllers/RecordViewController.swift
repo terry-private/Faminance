@@ -10,6 +10,10 @@ import UIKit
 import FSCalendar
 import BottomHalfModal
 
+protocol RecordViewControllerDelegate {
+    func addedCashTransaction()
+}
+
 class RecordViewController : UIViewController {
     
     @IBOutlet weak var inOutSegmentedControl: UISegmentedControl!
@@ -25,6 +29,8 @@ class RecordViewController : UIViewController {
     var subCategoryId: String = ""
     var bankId: String = ""
     var alertController: UIAlertController! // error massage dialog
+    var recordVIewControllerDelegate: RecordViewControllerDelegate?
+    
     
     @IBAction func amountButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard.init(name: "InputCalculatorView", bundle: nil)
@@ -94,17 +100,19 @@ class RecordViewController : UIViewController {
         fixButton.layer.borderWidth = 2
         fixButton.layer.borderColor = UIColor.lightGray.cgColor
         memoTextField.attributedPlaceholder = NSAttributedString(string: "メモ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-        let clearButton = UIBarButtonItem(title: "clear", style: .plain, target: self, action: #selector(tappedClearButton))
+        let clearButton = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(tappedClearButton))
         clearButton.tintColor = .white
         
         navigationItem.leftBarButtonItem = clearButton
+        
+        
         clear()
     }
     
     
     /// clearButtonタップ時のアクション
     @objc private func tappedClearButton() {
-        clear()
+        dismiss(animated: true, completion: nil)
     }
     
     /// 入力内容を初期状態に戻します。
@@ -160,7 +168,8 @@ class RecordViewController : UIViewController {
             "memo": memoTextField.text ?? ""
         ]))
         CurrentData.faminance.version += 1
-        clear()
+        recordVIewControllerDelegate?.addedCashTransaction()
+        dismiss(animated: true, completion: nil)
     }
     
     /// 確定ボタンを押した時に足りない情報がある場合のエラ〜メッセージダイアログを表示

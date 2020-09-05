@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Charts
+import Firebase
 
 class HomeViewController: UIViewController {
     
@@ -39,10 +39,36 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         currentDate = Date.current
         setUpTable()
+        setNavigationButton()
         
-        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-        let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-        self.present(signUpViewController, animated: true, completion: nil)
+        if Auth.auth().currentUser?.uid == nil {
+            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+            let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            signUpViewController.modalPresentationStyle = .fullScreen
+            self.present(signUpViewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func setNavigationButton() {
+        let humburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFaminanceList))
+        humburgerMenuButton.tintColor = .white
+        navigationItem.leftBarButtonItem = humburgerMenuButton
+        
+        let recordViewButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(presentRecortView))
+        recordViewButton.tintColor = .white
+        navigationItem.rightBarButtonItem = recordViewButton
+    }
+    
+    @objc private func presentFaminanceList() {
+        
+    }
+    @objc private func presentRecortView() {
+        let storyboard = UIStoryboard(name: "RecordView", bundle: nil)
+        let recordViewController = storyboard.instantiateViewController(identifier: "RecordViewController") as! RecordViewController
+        recordViewController.recordVIewControllerDelegate = self
+        let nav = UINavigationController(rootViewController: recordViewController)
+        nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
+        self.present(nav,animated: true, completion: nil)
     }
 
     
@@ -76,9 +102,11 @@ class HomeViewController: UIViewController {
         incomeLabel.text = formatter.string(from: NSNumber(value: income))
         outgoLabel.text = formatter.string(from: NSNumber(value: outgo))
         if currentBalance < 0 {
-            currentBalanceLabel.text = "ー" + (formatter.string(from: NSNumber(value: currentBalance)) ?? "¥0")
+            currentBalanceLabel.text = "ー" + (formatter.string(from: NSNumber(value: -currentBalance)) ?? "¥0")
+            currentBalanceLabel.textColor = .red
         } else {
             currentBalanceLabel.text = "＋" + (formatter.string(from: NSNumber(value: currentBalance)) ?? "¥0")
+            currentBalanceLabel.textColor = .darkGray
         }
     }
 
@@ -88,16 +116,16 @@ class HomeViewController: UIViewController {
         income = 0
         outgo = 0
         mainCategoryTableView.reloadData()
-        self.currentFaminance = CurrentData.faminance.getAtMonth(date:self.currentDate)
-        self.mainCategoryKeys = [String](self.currentFaminance.mainCategories.keys).sorted{$0 < $1}
-        self.mainCategoryTableView.reloadData()
+        currentFaminance = CurrentData.faminance.getAtMonth(date:self.currentDate)
+        mainCategoryKeys = [String](self.currentFaminance.mainCategories.keys).sorted{$0 < $1}
+        mainCategoryTableView.reloadData()
         
     }
     
     /// 全てのバーアニメーションを開始します。
     func runAllBarAnimation(){
-        for i in (0 ..< self.mainCategoryTableView.numberOfRows(inSection: 0)){
-            let cell = self.mainCategoryTableView.cellForRow(at:IndexPath(row:i,section: 0)) as! MainCategoryTableViewCell
+        for i in (0 ..< mainCategoryTableView.numberOfRows(inSection: 0)){
+            let cell = mainCategoryTableView.cellForRow(at:IndexPath(row:i,section: 0)) as! MainCategoryTableViewCell
             cell.barAnimation()
         }
     }
@@ -112,6 +140,17 @@ class HomeViewController: UIViewController {
             currentDate = currentDate.added(month:1)
         }
     }
+    
+}
+
+extension HomeViewController: RecordViewControllerDelegate {
+    func addedCashTransaction() {
+        print("addedCashTransaction")
+        tableReload()
+        runAllBarAnimation()
+        setBallance()
+    }
+    
     
 }
 

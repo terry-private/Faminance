@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct SampleData{
     var dic: [String: Any]
@@ -17,13 +18,13 @@ struct SampleData{
                 "id": "uid001",
                 "name": "照仁",
                 "email": "ataeteruhito@gmail.com",
-                "createdAt": Date.current
+                "createdAt": Timestamp()
             ],
             "uid002": [
                 "id": "uid002",
                 "name": "知恵",
                 "email": "chie@gmail.com",
-                "createdAt": Date.current
+                "createdAt": Timestamp()
             ]
         ]
         
@@ -111,7 +112,7 @@ struct SampleData{
                 "amount": 3100,
                 "mainCategoryId": "mid001",
                 "subCategoryId": "sid003",
-                "date": Date(),
+                "date": Timestamp(),
                 "bankId": "bid002",
                 "remark": "惣菜とか"
             ],
@@ -121,7 +122,7 @@ struct SampleData{
                 "amount": 1289,
                 "mainCategoryId": "mid001",
                 "subCategoryId": "sid003",
-                "date": Date(),
+                "date": Timestamp(),
                 "bankId": "bid001",
                 "remark": "食材とか関スーにて"
             ]
@@ -133,7 +134,7 @@ struct SampleData{
                 "amount": 286,
                 "mainCategoryId": "mid001",
                 "subCategoryId": "sid004",
-                "date": Date(),
+                "date": Timestamp(),
                 "bankId": "bid001",
                 "remark": "惣菜とか"
             ],
@@ -143,7 +144,7 @@ struct SampleData{
                 "amount": 1900,
                 "mainCategoryId": "mid001",
                 "subCategoryId": "sid004",
-                "date": Date(),
+                "date": Timestamp(),
                 "bankId": "bid001",
                 "remark": "食材とか関スーにて"
             ]

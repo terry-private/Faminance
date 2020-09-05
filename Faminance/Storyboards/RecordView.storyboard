@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--記録-->
+        <scene sceneID="9dh-XG-4i0">
+            <objects>
+                <viewController storyboardIdentifier="RecordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sc0-LL-DM2" customClass="RecordViewController" customModule="Faminance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Uo-Sk-tKU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUd-Uu-Kc6">
+                                <rect key="frame" x="0.0" y="64" width="414" height="77"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                                <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="¥23,390">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="amountButtonTapped:" destination="sc0-LL-DM2" eventType="touchUpInside" id="1g1-OR-HvC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adc-km-eC0">
+                                <rect key="frame" x="0.0" y="161" width="414" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="2020年8月3日">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dateButtonTapped:" destination="sc0-LL-DM2" eventType="touchUpInside" id="Dui-dy-asI"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rhF-FZ-iUE">
+                                <rect key="frame" x="20" y="232" width="374" height="32"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="支出"/>
+                                    <segment title="収入"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R2-6h-kWd">
+                                <rect key="frame" x="20" y="283" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="　カテゴリー" image="folder.circle" catalog="system">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryButtonTapped:" destination="sc0-LL-DM2" eventType="touchUpInside" id="E5A-kL-nqt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae0-7Y-LFQ">
+                                <rect key="frame" x="20" y="337" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="口座、財布" image="yensign.circle" catalog="system">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <action selector="bankButtonTapped:" destination="sc0-LL-DM2" eventType="touchUpInside" id="CpG-PN-427"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ndW-cA-hng">
+                                <rect key="frame" x="22" y="390.5" width="35" height="33.5"/>
+                                <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ndW-cA-hng" secondAttribute="height" multiplier="1:1" id="3a7-ov-uVz"/>
+                                    <constraint firstAttribute="height" constant="35" id="r6o-qs-ziy"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メモ" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PCV-2d-V1E">
+                                <rect key="frame" x="60" y="391" width="334" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="memoTextFieldTappedDone:" destination="sc0-LL-DM2" eventType="editingDidEndOnExit" id="NQs-AQ-KIC"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0m-Ni-grW">
+                                <rect key="frame" x="30" y="457" width="354" height="40"/>
+                                <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="0.80993150680000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Orv-fP-XeT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="確定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="fixButtonTapped:" destination="sc0-LL-DM2" eventType="touchUpInside" id="CWb-UD-K2T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PCV-2d-V1E" firstAttribute="leading" secondItem="ndW-cA-hng" secondAttribute="trailing" constant="3" id="220-sp-29R"/>
+                            <constraint firstItem="dUd-Uu-Kc6" firstAttribute="top" secondItem="hMe-uM-sqx" secondAttribute="top" constant="20" id="3B2-Na-KuI"/>
+                            <constraint firstItem="ae0-7Y-LFQ" firstAttribute="leading" secondItem="hMe-uM-sqx" secondAttribute="leading" constant="20" id="3Bd-Bt-CeN"/>
+                            <constraint firstItem="1R2-6h-kWd" firstAttribute="top" secondItem="rhF-FZ-iUE" secondAttribute="bottom" constant="20" id="7W5-Qu-xbq"/>
+                            <constraint firstItem="b0m-Ni-grW" firstAttribute="leading" secondItem="hMe-uM-sqx" secondAttribute="leading" constant="30" id="AJ6-vM-P4Y"/>
+                            <constraint firstItem="hMe-uM-sqx" firstAttribute="trailing" secondItem="rhF-FZ-iUE" secondAttribute="trailing" constant="20" id="IKo-SV-NtI"/>
+                            <constraint firstItem="hMe-uM-sqx" firstAttribute="trailing" secondItem="b0m-Ni-grW" secondAttribute="trailing" constant="30" id="Idd-yq-mNh"/>
+                            <constraint firstItem="b0m-Ni-grW" firstAttribute="top" secondItem="PCV-2d-V1E" secondAttribute="bottom" constant="30" id="Iiy-Gh-v51"/>
+                            <constraint firstItem="hMe-uM-sqx" firstAttribute="trailing" secondItem="PCV-2d-V1E" secondAttribute="trailing" constant="20" id="PqK-fl-8wb"/>
+                            <constraint firstItem="ndW-cA-hng" firstAttribute="leading" secondItem="hMe-uM-sqx" secondAttribute="leading" constant="22" id="Ryi-b8-vmr"/>
+                            <constraint firstItem="ndW-cA-hng" firstAttribute="top" secondItem="ae0-7Y-LFQ" secondAttribute="bottom" constant="20" id="Ss2-op-A94"/>
+                            <constraint firstItem="ae0-7Y-LFQ" firstAttribute="top" secondItem="1R2-6h-kWd" secondAttribute="bottom" constant="20" id="TDR-hZ-6CS"/>
+                            <constraint firstItem="hMe-uM-sqx" firstAttribute="trailing" secondItem="dUd-Uu-Kc6" secondAttribute="trailing" id="Vmo-t2-mlo"/>
+                            <constraint firstItem="PCV-2d-V1E" firstAttribute="top" secondItem="ae0-7Y-LFQ" secondAttribute="bottom" constant="20" id="Xq3-8i-G6R"/>
+                            <constraint firstItem="hMe-uM-sqx" firstAttribute="trailing" secondItem="1R2-6h-kWd" secondAttribute="trailing" constant="20" id="Zvp-Oo-WBE"/>
+                            <constraint firstItem="adc-km-eC0" firstAttribute="top" secondItem="dUd-Uu-Kc6" secondAttribute="bottom" constant="20" id="ahF-yO-Iu4"/>
+                            <constraint firstItem="1R2-6h-kWd" firstAttribute="leading" secondItem="hMe-uM-sqx" secondAttribute="leading" constant="20" id="dvj-le-Uzs"/>
+                            <constraint firstItem="dUd-Uu-Kc6" firstAttribute="leading" secondItem="hMe-uM-sqx" secondAttribute="leading" id="mxt-Wf-JZs"/>
+                            <constraint firstItem="hMe-uM-sqx" firstAttribute="trailing" secondItem="ae0-7Y-LFQ" secondAttribute="trailing" constant="20" id="oQe-Jb-5lG"/>
+                            <constraint firstItem="adc-km-eC0" firstAttribute="leading" secondItem="hMe-uM-sqx" secondAttribute="leading" id="qqq-a1-uUB"/>
+                            <constraint firstItem="hMe-uM-sqx" firstAttribute="trailing" secondItem="adc-km-eC0" secondAttribute="trailing" id="rzB-CG-b0C"/>
+                            <constraint firstItem="rhF-FZ-iUE" firstAttribute="leading" secondItem="hMe-uM-sqx" secondAttribute="leading" constant="20" id="vhU-xO-eyM"/>
+                            <constraint firstItem="rhF-FZ-iUE" firstAttribute="top" secondItem="adc-km-eC0" secondAttribute="bottom" constant="20" id="xCw-oU-G2k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hMe-uM-sqx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="記録" id="5gw-5E-1af"/>
+                    <connections>
+                        <outlet property="amountButton" destination="dUd-Uu-Kc6" id="sl7-2b-cqE"/>
+                        <outlet property="bankButton" destination="ae0-7Y-LFQ" id="AVO-FR-poe"/>
+                        <outlet property="categoryButton" destination="1R2-6h-kWd" id="gEx-er-Oxl"/>
+                        <outlet property="dateButton" destination="adc-km-eC0" id="ldb-gH-ZoC"/>
+                        <outlet property="fixButton" destination="b0m-Ni-grW" id="BxP-1a-E7K"/>
+                        <outlet property="inOutSegmentedControl" destination="rhF-FZ-iUE" id="gsF-w3-ubO"/>
+                        <outlet property="memoTextField" destination="PCV-2d-V1E" id="mA0-6J-xE4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rQu-J6-b7B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="1323.8839285714284"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="folder.circle" catalog="system" width="128" height="121"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
+        <image name="yensign.circle" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

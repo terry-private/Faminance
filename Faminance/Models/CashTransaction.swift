@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class CashTransaction {
     let id: String
@@ -14,18 +15,18 @@ class CashTransaction {
     var amount:Int
     var mainCategoryId: String
     var subCategoryId: String
-    var date = Date()
+    var date: Date
     var bankId: String
     var memo: String
     
     init(dic: [String: Any]) {
-        self.id = dic["id"] as? String ?? ""
-        self.inOut = dic["inOut"] as? String ?? ""
-        self.amount = dic["amount"] as? Int ?? 0
-        self.mainCategoryId = dic["mainCategoryId"] as? String ?? ""
-        self.subCategoryId = dic["subCategoryId"] as? String ?? ""
-        self.date = dic["date"] as? Date ?? Date()
-        self.memo = dic["memo"] as? String ?? ""
-        self.bankId = dic["bankId"] as? String ?? ""
+        id = dic["id"] as? String ?? ""
+        inOut = dic["inOut"] as? String ?? ""
+        amount = dic["amount"] as? Int ?? 0
+        mainCategoryId = dic["mainCategoryId"] as? String ?? ""
+        subCategoryId = dic["subCategoryId"] as? String ?? ""
+        date = dic["date"] as? Date ?? Date.current
+        memo = dic["memo"] as? String ?? ""
+        bankId = dic["bankId"] as? String ?? ""
     }
 }

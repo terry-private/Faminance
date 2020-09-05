@@ -84,7 +84,6 @@ class SignUpViewController: UIViewController {
                 print("Firestorageへの情報の保存に失敗しました。\(err)")
                 return
             }
-            print("Firestorageへの情報の保存に成功しました。")
             storageRef.downloadURL { ( url, err) in
                 if let err = err {
                     print("Firestorageからのダウンロードに失敗しました。\(err)")
@@ -92,7 +91,6 @@ class SignUpViewController: UIViewController {
                 }
                 
                 guard let urlString = url?.absoluteString else { return }
-                print("urlString: ", urlString)
                 self.createdUserToFirestore(urlString)
             }
         }
@@ -115,7 +113,7 @@ class SignUpViewController: UIViewController {
             let docData = [
                 "mail": mail,
                 "password": password,
-                "createdAt": Timestamp(),
+                "createdAt": Date(),
                 "profileImageURL": profileImageUrl
             ] as [String: Any]
             Firestore.firestore().collection("users").document(uid).setData(docData) { (err) in
