@@ -45,6 +45,9 @@
                                     <segment title="収入"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="changedInOutSegment:" destination="sc0-LL-DM2" eventType="valueChanged" id="14Z-2l-pdY"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R2-6h-kWd">
                                 <rect key="frame" x="20" y="283" width="374" height="34"/>

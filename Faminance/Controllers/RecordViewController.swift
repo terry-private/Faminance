@@ -23,13 +23,19 @@ class RecordViewController : UIViewController {
     @IBOutlet weak var bankButton: UIButton!
     @IBOutlet weak var memoTextField: UITextField!
     @IBOutlet weak var fixButton: UIButton!
+    @IBAction func changedInOutSegment(_ sender: Any) {
+        categoryButton.setTitle(" カテゴリー", for: .normal)
+        categoryButton.setTitleColor(.lightGray, for: .normal)
+        mainCategoryId = ""
+        subCategoryId = ""
+    }
     
     
     var mainCategoryId: String = ""
     var subCategoryId: String = ""
     var bankId: String = ""
     var alertController: UIAlertController! // error massage dialog
-    var recordVIewControllerDelegate: RecordViewControllerDelegate?
+    var recordViewControllerDelegate: RecordViewControllerDelegate?
     
     
     @IBAction func amountButtonTapped(_ sender: UIButton) {
@@ -67,6 +73,7 @@ class RecordViewController : UIViewController {
 
         let inputMainCategoryViewController = storyboard.instantiateViewController(withIdentifier: "InputMainCategoryViewController") as! InputMainCategoryViewController
         inputMainCategoryViewController.inputMainCategoryViewControllerDelegate = self
+        inputMainCategoryViewController.inOut = inOutSegmentedControl.titleForSegment(at: inOutSegmentedControl.selectedSegmentIndex) ?? ""
 
         let nav = inputMainCategoryViewController.navigationController ?? BottomHalfModalNavigationController(rootViewController: inputMainCategoryViewController)
         nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
@@ -159,7 +166,7 @@ class RecordViewController : UIViewController {
         
         CurrentData.faminance.addCashTransaction(CashTransaction(dic:[
             "id": newCtId,
-            "inOut": "支出",
+            "inOut": inOutSegmentedControl.titleForSegment(at: inOutSegmentedControl.selectedSegmentIndex) ?? "",
             "amount": amount,
             "mainCategoryId": mainCategoryId,
             "subCategoryId": subCategoryId,
@@ -168,7 +175,7 @@ class RecordViewController : UIViewController {
             "memo": memoTextField.text ?? ""
         ]))
         CurrentData.faminance.version += 1
-        recordVIewControllerDelegate?.addedCashTransaction()
+        recordViewControllerDelegate?.addedCashTransaction()
         dismiss(animated: true, completion: nil)
     }
     

@@ -94,6 +94,7 @@ class Faminance {
     func addCashTransaction(_ ct: CashTransaction) {
         self.mainCategories[ct.mainCategoryId]?.subCategories[ct.subCategoryId]?.cashTransactions[ct.id] = ct
         self.myBanks[ct.bankId]?.cashTransactions[ct.id] = ct
+        print(ct.subCategoryId)
     }
     
     /// currentDateの年月のchashTransactionのみを集めたFaminanceを返します。

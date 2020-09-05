@@ -17,7 +17,23 @@ final class InputMainCategoryViewController: UIViewController, SheetContentHeigh
 
     let sheetContentHeightToModify: CGFloat = 420
     let cellId = "cellId"
+    var inOut = "" {
+        didSet{
+            categoryList = [String]()
+            mainCategoryTableView?.reloadData()
+            
+            for mc in [String](CurrentData.faminance.mainCategories.keys).sorted(by: {$0 < $1}) {
+                if CurrentData.faminance.mainCategories[mc]?.inOut == inOut {
+                    categoryList.append(mc)
+                }
+            }
+            mainCategoryTableView?.reloadData()
+        }
+    }
+    
+    var categoryList = [String]()
     var inputMainCategoryViewControllerDelegate: InputMainCategoryViewControllerDelegate?
+    
     @IBOutlet weak var mainCategoryTableView: UITableView!
     
 
@@ -67,20 +83,20 @@ final class InputMainCategoryViewController: UIViewController, SheetContentHeigh
 
 extension InputMainCategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CurrentData.faminance.mainCategories.count
+        return categoryList.count
     }
     
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainCategoryTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! InputMainCategoryCell
-        cell.mainCategoryNameLabel.text = CurrentData.faminance.mainCategoryAtIndex(indexPath.row)?.name
+        cell.mainCategoryNameLabel.text = CurrentData.faminance.mainCategories[categoryList[indexPath.row]]?.name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "InputSubCategory", bundle: nil)
         let inputSubCategoryViewController = storyboard.instantiateViewController(withIdentifier: "InputSubCategoryViewController") as! InputSubCategoryViewController
-        inputSubCategoryViewController.mainCategory = CurrentData.faminance.mainCategoryAtIndex(indexPath.row)
+        inputSubCategoryViewController.mainCategory = CurrentData.faminance.mainCategories[categoryList[indexPath.row]]
         inputSubCategoryViewController.inputSubCategoryViewControllerDelegate = self
         
         navigationController?.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)

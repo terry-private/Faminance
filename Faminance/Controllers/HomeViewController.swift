@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
     @objc private func presentRecortView() {
         let storyboard = UIStoryboard(name: "RecordView", bundle: nil)
         let recordViewController = storyboard.instantiateViewController(identifier: "RecordViewController") as! RecordViewController
-        recordViewController.recordVIewControllerDelegate = self
+        recordViewController.recordViewControllerDelegate = self
         let nav = UINavigationController(rootViewController: recordViewController)
         nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
         self.present(nav,animated: true, completion: nil)
@@ -145,7 +145,6 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: RecordViewControllerDelegate {
     func addedCashTransaction() {
-        print("addedCashTransaction")
         tableReload()
         runAllBarAnimation()
         setBallance()

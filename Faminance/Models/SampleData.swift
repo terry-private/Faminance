@@ -265,10 +265,10 @@ struct SampleData{
                 "subCategories": subCategories02
             ],
             "mid003": [
-                "id": "mid004",
+                "id": "mid003",
                 "name": "収入（生活費）",
                 "inOut": "収入",
-                "targetAmount": 60000,
+                "targetAmount": 228000,
                 "memo": "",
                 "subCategories": subCategories03
             ]
