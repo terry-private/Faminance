@@ -21,7 +21,8 @@ class Faminance {
     var myBanks = [String: MyBank]()
     var mainCategories = [String: MainCategory]()
     var memo: String
-    var version: Int
+    var version: Int = 0
+    var createdAt: Date = Date.current
     
     /// Firebaseの情報をそのまま引数の辞書に代入
     /// - Parameter dic: [
@@ -56,6 +57,7 @@ class Faminance {
         
         self.memo = dic["memo"] as? String ?? ""
         self.version = dic["version"] as? Int ?? 0
+        self.createdAt = dic["cteatedAt"] as? Date ?? Date.current
         
         setMyBanksCashTransactions()
     }

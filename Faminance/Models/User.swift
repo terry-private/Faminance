@@ -16,7 +16,7 @@ class User {
     var createdAt = Date.current
     
     init(dic: [String: Any]) {
-        id = dic["id"] as? String ?? ""
+        id = dic["id"] as? String ?? "noId"
         name = dic["name"] as? String ?? ""
         email = dic["email"] as? String ?? ""
         profileImageURL = dic["profileImageURL"] as? String ?? ""

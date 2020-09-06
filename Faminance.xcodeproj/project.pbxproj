@@ -26,6 +26,8 @@
 		094BCB4724EEA817006711DC /* InputCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCB4624EEA817006711DC /* InputCalculatorViewController.swift */; };
 		094BCB4924EEA8BB006711DC /* CalculatorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCB4824EEA8BB006711DC /* CalculatorViewCell.swift */; };
 		094BCB4B24EEB012006711DC /* InputCalculatorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094BCB4A24EEB012006711DC /* InputCalculatorView.storyboard */; };
+		094D12D42504A42D000483F8 /* MyMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094D12D32504A42D000483F8 /* MyMenu.storyboard */; };
+		094D12D62504A765000483F8 /* MyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D12D52504A765000483F8 /* MyMenu.swift */; };
 		09511EAF24E8BE1F00470C22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09511EAE24E8BE1F00470C22 /* AppDelegate.swift */; };
 		09511EB124E8BE1F00470C22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09511EB024E8BE1F00470C22 /* SceneDelegate.swift */; };
 		09511EB624E8BE1F00470C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09511EB424E8BE1F00470C22 /* Main.storyboard */; };
@@ -98,6 +100,8 @@
 		094BCB4624EEA817006711DC /* InputCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCalculatorViewController.swift; sourceTree = "<group>"; };
 		094BCB4824EEA8BB006711DC /* CalculatorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewCell.swift; sourceTree = "<group>"; };
 		094BCB4A24EEB012006711DC /* InputCalculatorView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputCalculatorView.storyboard; sourceTree = "<group>"; };
+		094D12D32504A42D000483F8 /* MyMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyMenu.storyboard; sourceTree = "<group>"; };
+		094D12D52504A765000483F8 /* MyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenu.swift; sourceTree = "<group>"; };
 		09511EAB24E8BE1F00470C22 /* Faminance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Faminance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09511EAE24E8BE1F00470C22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09511EB024E8BE1F00470C22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				09511EFE24E8E82800470C22 /* MainCategoryDetails.storyboard */,
 				0945098F24FE667500945941 /* SignUp.storyboard */,
 				0948521525036C6200111C5E /* RecordView.storyboard */,
+				094D12D32504A42D000483F8 /* MyMenu.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				09511F0024E8E91100470C22 /* MainCategoryDetailsController.swift */,
 				09511F0A24E903F600470C22 /* BankViewController.swift */,
 				09511F0C24E9178900470C22 /* RecordViewController.swift */,
+				094D12D52504A765000483F8 /* MyMenu.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 			files = (
 				0946824A24EC0B4A005A2EA3 /* InputCalendarView.storyboard in Resources */,
 				094BCB4B24EEB012006711DC /* InputCalculatorView.storyboard in Resources */,
+				094D12D42504A42D000483F8 /* MyMenu.storyboard in Resources */,
 				09511F0724E8FD0F00470C22 /* BankTableViewCell.xib in Resources */,
 				09511F0524E8EA6A00470C22 /* CashTransactionTableViewCell.xib in Resources */,
 				0947E6F324F2154C00198D0F /* InputMainCategory.storyboard in Resources */,
@@ -611,6 +618,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				094D12D62504A765000483F8 /* MyMenu.swift in Sources */,
 				09511EE624E8D24C00470C22 /* Date-Extension.swift in Sources */,
 				09511EE224E8D1F000470C22 /* UIColor-Extension.swift in Sources */,
 				09492C3024F1013000D9D9FB /* String-Extension.swift in Sources */,

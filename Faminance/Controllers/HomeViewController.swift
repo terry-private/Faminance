@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SideMenu
 
 class HomeViewController: UIViewController {
     
@@ -49,8 +50,9 @@ class HomeViewController: UIViewController {
         }
     }
     
+    /// navigationButtonの作成
     private func setNavigationButton() {
-        let humburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFaminanceList))
+        let humburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentMyMenu))
         humburgerMenuButton.tintColor = .white
         navigationItem.leftBarButtonItem = humburgerMenuButton
         
@@ -59,7 +61,23 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItem = recordViewButton
     }
     
-    @objc private func presentFaminanceList() {
+    @objc private func presentMyMenu() {
+        let storyboard = UIStoryboard(name: "MyMenu", bundle: nil)
+        let myMenuViewController = storyboard.instantiateViewController(withIdentifier: "MyMenuViewController") as! MyMenuViewController
+        
+//        faminanceViewController.navigationItem.leftBarButtonItem
+        myMenuViewController.navigationItem.title = "マイメニュー"
+        let nav = SideMenuNavigationController(rootViewController: myMenuViewController)
+        nav.menuWidth = self.view.bounds.width - 60
+        nav.presentationStyle = .menuSlideIn
+        nav.presentationStyle.presentingEndAlpha = 0.5
+        nav.leftSide = true
+        nav.navigationBar.barTintColor = .white
+        nav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        
+        
+        
+        self.present(nav, animated: true, completion: nil)
         
     }
     @objc private func presentRecortView() {

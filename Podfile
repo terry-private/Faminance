@@ -9,10 +9,12 @@ target 'Faminance' do
   pod 'Charts'
   pod 'FSCalendar'
   pod 'BottomHalfModal'
+  pod 'SideMenu'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  
   
   target 'FaminanceTests' do
     inherit! :search_paths

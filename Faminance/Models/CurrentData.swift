@@ -11,7 +11,7 @@ import UIKit
 
 struct CurrentData {
     static var faminance: Faminance = Faminance(dic: SampleData().dic)
-    static var myAccount: User?
+    static var myAccount: User = User(dic: [String: Any]())
 
     static var chartColorList:[UIColor] = [
         UIColor.hex("0d8ed9"),
@@ -21,8 +21,11 @@ struct CurrentData {
         UIColor.hex("bd973e")
     ]
     
+    static func dateToInt(_ date: Date) -> Int {
+        return date.year*10000000000 + date.month*100000000 + date.day*1000000 + date.hour*10000 + date.minute*100 + date.second
+    }
     static func newId(_ header: String,_ date: Date) -> String{
-        return header + String(date.year*10000000000 + date.month*100000000 + date.day*1000000 + date.hour*10000 + date.minute*100 + date.second) + myAccount!.id
+        return header + String(dateToInt(date)) + myAccount.id
     }
 
 }
