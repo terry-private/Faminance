@@ -340,6 +340,7 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - Nuke (9.1.2)
   - PromisesObjC (1.2.10)
   - SideMenu (6.4.9)
 
@@ -351,6 +352,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FSCalendar
+  - Nuke
   - SideMenu
 
 SPEC REPOS:
@@ -376,6 +378,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - Nuke
     - PromisesObjC
     - SideMenu
 
@@ -401,9 +404,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  Nuke: dd2e6be6a34c042a7861e190632781d11f253026
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SideMenu: 8ef57a3cfc024a2d3fc1c036c7fe98537baec9e0
 
-PODFILE CHECKSUM: 897a1c419b2b9cef5f1101d59e3c955ccdd9aebb
+PODFILE CHECKSUM: ae3f93fef082ad9241c6942953c34ea54a355123
 
 COCOAPODS: 1.9.3

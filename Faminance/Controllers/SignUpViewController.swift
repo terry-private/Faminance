@@ -11,6 +11,13 @@ import Firebase
 
 
 class SignUpViewController: UIViewController {
+    var urlString = ""
+    
+    // ロードする時のクルクル
+    @IBOutlet weak var activityIndicatorBackgroundView: UIView!
+    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var indicatorTopMargin: NSLayoutConstraint!
     
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var mailTextField: UITextField!
@@ -23,6 +30,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDesign()
+        
         
         mailTextField.delegate = self
         passwordTextField.delegate = self
@@ -60,6 +68,8 @@ class SignUpViewController: UIViewController {
         
         // registerButtonタップ時のイベントを作成
         registerButton.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
+        
+        indicatorTopMargin.constant = self.view.bounds.height
     }
     
     // profileImageButtonをタップ時のアクション
@@ -67,16 +77,61 @@ class SignUpViewController: UIViewController {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
-        
         self.present(imagePickerController, animated: true, completion: nil)
     }
     
     // registerButtonタップ時のアクション
     @objc private func tappedRegisterButton() {
-        guard let image = profileImageButton.imageView?.image else { return }
-        guard let uploadImage = image.jpegData(compressionQuality: 0.3) else { return }
+        // アニメーションをスタート
+        indicatorTopMargin.constant = 0
+        self.activityIndicatorBackgroundView.backgroundColor = .rgb(red:0,green:0,blue:0,alpha:0.5)
+        activityIndicatorView.startAnimating()
+        // 通信系の処理を実行 サブスレッドにて
+        // サブスレッドの処理が終わったらメインスレッドに戻す
+        DispatchQueue.global().async {
+            self.createdUserToFirestore()
+            DispatchQueue.main.async {
+                // メインスレッドはUIの処理など
+                // アニメーションをストップ
+                self.activityIndicatorView.stopAnimating()
+                self.indicatorTopMargin.constant = self.view.bounds.height
+                self.activityIndicatorBackgroundView.backgroundColor = .rgb(red:0,green:0,blue:0,alpha:0)
+            }
+        }
+    }
+
+    /// 順番が大切
+    /// Authに登録してをログイン状態に
+    /// imageを保存してURLをゲット
+    /// usersにuser情報を保存
+    private func createdUserToFirestore() {
+        guard let mail = mailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let name = usernameTextField.text else { return }
+        Auth.auth().createUser(withEmail: mail, password: password) { (res, err) in
+            if let err = err {
+                print("認証情報の保存に失敗しました。\(err)")
+                return
+            }
+            guard let uid = res?.user.uid else { return }
+            let docData = [
+                "id": uid,
+                "mail": mail,
+                "password": password,
+                "name": name,
+                "createdAt": Date(),
+                "profileImageURL": ""
+            ] as [String: Any]
+            self.uploadProfileImage(docData)
+        }
+    }
+    
+    // imageをアップロードしてダウンロードURLを返します。
+    private func uploadProfileImage(_ docData: [String: Any]){
+        guard let image = profileImageButton.imageView?.image else { self.setUserData(docData) ;return }
+        guard let uploadImage = image.jpegData(compressionQuality: 0.3) else { self.setUserData(docData) ;return }
         
-        let fileName = NSUUID().uuidString
+        let fileName = CurrentData.newId("img", Date.current)
         let storageRef = Storage.storage().reference().child("profile_image").child(fileName)
         
         storageRef.putData(uploadImage, metadata: nil) { (metadata, err) in
@@ -89,43 +144,28 @@ class SignUpViewController: UIViewController {
                     print("Firestorageからのダウンロードに失敗しました。\(err)")
                     return
                 }
-                
-                guard let urlString = url?.absoluteString else { return }
-                self.createdUserToFirestore(urlString)
+                var dic = docData
+                dic["profileImageURL"] = url?.absoluteString ?? ""
+                self.setUserData(dic)
+                return
             }
         }
     }
     
-    /// FireAuthに認証情報を保存
-    /// Firestoreにユーザー情報を保存
-    /// - Parameter profileImageUrl: Firestorageに保存した画像のURL
-    private func createdUserToFirestore(_ profileImageUrl: String) {
-        guard let mail = mailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        
-        Auth.auth().createUser(withEmail: mail, password: password) { (res, err) in
+    func setUserData(_ docData: [String: Any]){
+        let uid = docData["id"] as? String ?? "noId"
+        Firestore.firestore().collection("users").document(uid).setData(docData) { (err) in
             if let err = err {
-                print("認証情報の保存に失敗しました。\(err)")
+                print("データベースへの保存に失敗しました。\(err)")
                 return
             }
-            
-            guard let uid = res?.user.uid else { return }
-            let docData = [
-                "mail": mail,
-                "password": password,
-                "createdAt": Date(),
-                "profileImageURL": profileImageUrl
-            ] as [String: Any]
-            Firestore.firestore().collection("users").document(uid).setData(docData) { (err) in
-                if let err = err {
-                    print("データベースへの保存に失敗しました。\(err)")
-                    return
-                }
-                print("Firestoreへの情報の保存が成功しました。")
-                self.dismiss(animated: true, completion: nil)
-            }
+            print("Firestoreへの情報の保存が成功しました。")
+            CurrentData.myAccount = User(dic: docData)
+            self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    
     
     /// 入力値が正しい場合のみ確定ボタンを有効にします。
     func validation() {

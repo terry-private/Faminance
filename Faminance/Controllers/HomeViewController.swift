@@ -41,8 +41,16 @@ class HomeViewController: UIViewController {
         currentDate = Date.current
         setUpTable()
         setNavigationButton()
-        
-        if Auth.auth().currentUser?.uid == nil {
+        if let user = Auth.auth().currentUser {
+            Firestore.firestore().collection("users").document(user.uid).getDocument { (snap, error) in
+                if let error = error {
+                    print("失敗\(error)")
+                } else {
+                    guard let data = snap?.data() else { return }
+                    CurrentData.myAccount = User(dic: data)
+                }
+            }
+        } else {
             let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
             let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
             signUpViewController.modalPresentationStyle = .fullScreen

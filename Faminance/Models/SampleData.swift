@@ -17,13 +17,13 @@ struct SampleData{
             "uid001": [
                 "id": "uid001",
                 "name": "照仁",
-                "email": "ataeteruhito@gmail.com",
+                "mail": "ataeteruhito@gmail.com",
                 "createdAt": Timestamp()
             ],
             "uid002": [
                 "id": "uid002",
                 "name": "知恵",
-                "email": "chie@gmail.com",
+                "mail": "chie@gmail.com",
                 "createdAt": Timestamp()
             ]
         ]

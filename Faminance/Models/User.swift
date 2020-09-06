@@ -18,7 +18,7 @@ class User {
     init(dic: [String: Any]) {
         id = dic["id"] as? String ?? "noId"
         name = dic["name"] as? String ?? ""
-        email = dic["email"] as? String ?? ""
+        email = dic["mail"] as? String ?? ""
         profileImageURL = dic["profileImageURL"] as? String ?? ""
         createdAt = dic["createdAt"] as? Date ?? Date.current
     }

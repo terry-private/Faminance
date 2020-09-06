@@ -10,6 +10,7 @@ target 'Faminance' do
   pod 'FSCalendar'
   pod 'BottomHalfModal'
   pod 'SideMenu'
+  pod 'Nuke'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'

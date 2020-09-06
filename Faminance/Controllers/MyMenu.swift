@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Nuke
+import Firebase
 
 class MyMenuViewController: UIViewController {
     
@@ -19,11 +21,38 @@ class MyMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        myImageView.layer.cornerRadius = myImageView.bounds.width / 2
         myTopView.setTarget(self, selector: #selector(tappedMyTopView))
+        myNameLabel.text = CurrentData.myAccount.name
+        myMailLabel.text = CurrentData.myAccount.email
+        setMyImage()
+        
+        let logoutBarButton = UIBarButtonItem(title: "ログアウト", style: .plain, target: self, action: #selector(tappedLogoutButton))
+        navigationItem.leftBarButtonItem = logoutBarButton
+    }
+    
+    @objc func tappedLogoutButton() {
+        do {
+            try Auth.auth().signOut()
+            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+            let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            signUpViewController.modalPresentationStyle = .fullScreen
+            self.present(signUpViewController, animated: true, completion: nil)
+        } catch {
+            print("ログアウトに失敗しました。")
+        }
     }
     
     @objc func tappedMyTopView(){
         print("tappedMyTopView")
+    }
+    func setMyImage() {
+        
+        guard let url = URL(string: CurrentData.myAccount.profileImageURL) else {
+            myImageView.image = UIImage(systemName: "camera")
+            return
+        }
+        Nuke.loadImage(with: url, into: myImageView)
     }
 }
 
