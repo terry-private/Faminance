@@ -8,10 +8,10 @@
 
 import UIKit
 
-class CashTransactionTableViewCell: UITableViewCell {
+class CashTransactionTableViewCell: UITableViewCell{
     @IBOutlet weak var subCategoryColorRectView: UIView!
     @IBOutlet weak var subCategoryNameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var bankLabel: UILabel!
     

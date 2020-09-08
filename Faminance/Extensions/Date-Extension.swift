@@ -74,6 +74,10 @@ extension Date {
         return f.string(from: self)
     }
     
+    func toDateInt() -> Int{
+        return self.year * 10000 + self.month * 100 + self.day
+    }
+    
     var year: Int {
         return calendar.component(.year, from: self)
     }

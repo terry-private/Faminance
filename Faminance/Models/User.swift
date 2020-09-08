@@ -20,6 +20,6 @@ class User {
         name = dic["name"] as? String ?? ""
         email = dic["mail"] as? String ?? ""
         profileImageURL = dic["profileImageURL"] as? String ?? ""
-        createdAt = dic["createdAt"] as? Date ?? Date.current
+        createdAt = (dic["createdAt"] as? Timestamp)?.dateValue().added(hour: 9) ?? Date.current
     }
 }

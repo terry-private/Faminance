@@ -94,6 +94,7 @@ class HomeViewController: UIViewController {
         recordViewController.recordViewControllerDelegate = self
         let nav = UINavigationController(rootViewController: recordViewController)
         nav.navigationBar.barTintColor = .rgb(red:26,green:188, blue:156 ,alpha:1)
+        nav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.present(nav,animated: true, completion: nil)
     }
 

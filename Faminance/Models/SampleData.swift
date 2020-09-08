@@ -18,7 +18,7 @@ struct SampleData{
                 "id": "uid001",
                 "name": "照仁",
                 "mail": "ataeteruhito@gmail.com",
-                "createdAt": Timestamp()
+                "createdAt": Timestamp().dateValue().added(day: -5)
             ],
             "uid002": [
                 "id": "uid002",
@@ -33,28 +33,28 @@ struct SampleData{
                 "id": "bid001",
                 "name": "生活費用の三井住友",
                 "initialAmount": 1000000,
-                "remark": "生活費用の口座"
+                "memo": "生活費用の口座"
             
             ],
             "bid002": [
                 "id": "bid002",
                 "name": "家族のお財布",
                 "initialAmount": 18000,
-                "remark": "財布"
+                "memo": "財布"
             
             ],
             "bid003": [
                 "id": "bid003",
                 "name": "貯金用のゆうちょ",
                 "initialAmount": 1000000,
-                "remark": "貯金用の口座"
+                "memo": "貯金用の口座"
             
             ],
             "bid004": [
                 "id": "bid004",
                 "name": "ブタの預金箱",
                 "initialAmount": 1000000,
-                "remark": "お祝いなど"
+                "memo": "お祝いなど"
             
             ]
         ]
@@ -68,7 +68,7 @@ struct SampleData{
                 "subCategoryId": "etc",
                 "date": Date(),
                 "bankId": "bid002",
-                "remark": "惣菜とか"
+                "memo": "惣菜とか"
             ],
             "cid002": [
                 "id": "cid002",
@@ -76,9 +76,9 @@ struct SampleData{
                 "amount": 4289,
                 "mainCategoryId": "mid001",
                 "subCategoryId": "etc",
-                "date": Date(),
+                "date": Date().added(day: -10),
                 "bankId": "bid002",
-                "remark": "食材とか関スーにて"
+                "memo": "関スーにて"
             ]
         ]
         
@@ -91,7 +91,7 @@ struct SampleData{
                 "subCategoryId": "sid002",
                 "date": Date(),
                 "bankId": "bid001",
-                "remark": "惣菜とか"
+                "memo": "惣菜とか"
             ],
             "cid004": [
                 "id": "cid004",
@@ -99,9 +99,9 @@ struct SampleData{
                 "amount": 3788,
                 "mainCategoryId": "mid001",
                 "subCategoryId": "sid002",
-                "date": Date(),
+                "date": Date().added(day: -5),
                 "bankId": "bid002",
-                "remark": "食材とか関スーにて"
+                "memo": "食材とか関スーにて"
             ]
         ]
         
@@ -114,7 +114,7 @@ struct SampleData{
                 "subCategoryId": "sid003",
                 "date": Timestamp(),
                 "bankId": "bid002",
-                "remark": "惣菜とか"
+                "memo": "惣菜とか"
             ],
             "cid006": [
                 "id": "cid006",
@@ -124,7 +124,7 @@ struct SampleData{
                 "subCategoryId": "sid003",
                 "date": Timestamp(),
                 "bankId": "bid001",
-                "remark": "食材とか関スーにて"
+                "memo": "食材とか関スーにて"
             ]
         ]
         let cashTransactions04:[String: Any] = [
@@ -136,7 +136,7 @@ struct SampleData{
                 "subCategoryId": "sid004",
                 "date": Timestamp(),
                 "bankId": "bid001",
-                "remark": "惣菜とか"
+                "memo": "惣菜とか"
             ],
             "cid008": [
                 "id": "cid008",
@@ -146,7 +146,7 @@ struct SampleData{
                 "subCategoryId": "sid004",
                 "date": Timestamp(),
                 "bankId": "bid001",
-                "remark": "食材とか関スーにて"
+                "memo": "食材とか関スーにて"
             ]
         ]
         let cashTransactions05: [String: Any] = [

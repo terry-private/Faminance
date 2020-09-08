@@ -13,11 +13,10 @@ import Firebase
 class SignUpViewController: UIViewController {
     var urlString = ""
     
-    // ロードする時のクルクル
-    @IBOutlet weak var activityIndicatorBackgroundView: UIView!
-    
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
-    @IBOutlet weak var indicatorTopMargin: NSLayoutConstraint!
+    // ロードする時のクルクルを出す時、下に隠れてるバックグラウンドビューを全画面にする動きをさせてます。
+    @IBOutlet weak var activityIndicatorBackgroundView: UIView! //  クルクルビューの薄暗いバックグラウンド
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView! // クルクルビュー
+    @IBOutlet weak var indicatorTopMargin: NSLayoutConstraint! //   クルクルバックグラウンドのトップマージン
     
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var mailTextField: UITextField!
@@ -81,21 +80,19 @@ class SignUpViewController: UIViewController {
     }
     
     // registerButtonタップ時のアクション
+    // スレッドを分けてクルクルを出します。
     @objc private func tappedRegisterButton() {
         // アニメーションをスタート
         indicatorTopMargin.constant = 0
         self.activityIndicatorBackgroundView.backgroundColor = .rgb(red:0,green:0,blue:0,alpha:0.5)
         activityIndicatorView.startAnimating()
-        // 通信系の処理を実行 サブスレッドにて
+        // 通信系の処理をサブスレッドにて実行
         // サブスレッドの処理が終わったらメインスレッドに戻す
         DispatchQueue.global().async {
             self.createdUserToFirestore()
             DispatchQueue.main.async {
                 // メインスレッドはUIの処理など
                 // アニメーションをストップ
-                self.activityIndicatorView.stopAnimating()
-                self.indicatorTopMargin.constant = self.view.bounds.height
-                self.activityIndicatorBackgroundView.backgroundColor = .rgb(red:0,green:0,blue:0,alpha:0)
             }
         }
     }
@@ -162,6 +159,9 @@ class SignUpViewController: UIViewController {
             print("Firestoreへの情報の保存が成功しました。")
             CurrentData.myAccount = User(dic: docData)
             self.dismiss(animated: true, completion: nil)
+            self.activityIndicatorView.stopAnimating()
+            self.indicatorTopMargin.constant = self.view.bounds.height
+            self.activityIndicatorBackgroundView.backgroundColor = .rgb(red:0,green:0,blue:0,alpha:0)
         }
     }
     

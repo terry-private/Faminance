@@ -28,6 +28,8 @@
 		094BCB4B24EEB012006711DC /* InputCalculatorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094BCB4A24EEB012006711DC /* InputCalculatorView.storyboard */; };
 		094D12D42504A42D000483F8 /* MyMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094D12D32504A42D000483F8 /* MyMenu.storyboard */; };
 		094D12D62504A765000483F8 /* MyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D12D52504A765000483F8 /* MyMenu.swift */; };
+		0950C6102507B2F5009CDA78 /* DateSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0950C60F2507B2F5009CDA78 /* DateSeparatorCell.xib */; };
+		0950C6122507B462009CDA78 /* DateSeparatorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0950C6112507B462009CDA78 /* DateSeparatorViewCell.swift */; };
 		09511EAF24E8BE1F00470C22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09511EAE24E8BE1F00470C22 /* AppDelegate.swift */; };
 		09511EB124E8BE1F00470C22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09511EB024E8BE1F00470C22 /* SceneDelegate.swift */; };
 		09511EB624E8BE1F00470C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09511EB424E8BE1F00470C22 /* Main.storyboard */; };
@@ -102,6 +104,8 @@
 		094BCB4A24EEB012006711DC /* InputCalculatorView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputCalculatorView.storyboard; sourceTree = "<group>"; };
 		094D12D32504A42D000483F8 /* MyMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyMenu.storyboard; sourceTree = "<group>"; };
 		094D12D52504A765000483F8 /* MyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenu.swift; sourceTree = "<group>"; };
+		0950C60F2507B2F5009CDA78 /* DateSeparatorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSeparatorCell.xib; sourceTree = "<group>"; };
+		0950C6112507B462009CDA78 /* DateSeparatorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSeparatorViewCell.swift; sourceTree = "<group>"; };
 		09511EAB24E8BE1F00470C22 /* Faminance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Faminance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09511EAE24E8BE1F00470C22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09511EB024E8BE1F00470C22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 			children = (
 				09511EF924E8D9B000470C22 /* MainCategoryTableViewCell.xib */,
 				09511F0424E8EA6A00470C22 /* CashTransactionTableViewCell.xib */,
+				0950C60F2507B2F5009CDA78 /* DateSeparatorCell.xib */,
 				09511F0624E8FD0F00470C22 /* BankTableViewCell.xib */,
 			);
 			path = Xibs;
@@ -337,6 +342,7 @@
 			children = (
 				09511EFC24E8DA6300470C22 /* MainCategoryTableViewCell.swift */,
 				09511F0224E8EA1800470C22 /* CashTransactionTableViewCell.swift */,
+				0950C6112507B462009CDA78 /* DateSeparatorViewCell.swift */,
 				09511F0824E9006D00470C22 /* BankTableViewCell.swift */,
 			);
 			path = Cells;
@@ -483,6 +489,7 @@
 				09511EFA24E8D9B000470C22 /* MainCategoryTableViewCell.xib in Resources */,
 				0948521625036C6200111C5E /* RecordView.storyboard in Resources */,
 				09511EBB24E8BE2000470C22 /* LaunchScreen.storyboard in Resources */,
+				0950C6102507B2F5009CDA78 /* DateSeparatorCell.xib in Resources */,
 				09511EFF24E8E82800470C22 /* MainCategoryDetails.storyboard in Resources */,
 				09511EB824E8BE2000470C22 /* Assets.xcassets in Resources */,
 				0947E6F724F26FC300198D0F /* InputSubCategory.storyboard in Resources */,
@@ -637,6 +644,7 @@
 				09511EF024E8D5BA00470C22 /* MyBank.swift in Sources */,
 				0945099224FE6A8600945941 /* SignUpViewController.swift in Sources */,
 				09511F0324E8EA1800470C22 /* CashTransactionTableViewCell.swift in Sources */,
+				0950C6122507B462009CDA78 /* DateSeparatorViewCell.swift in Sources */,
 				09511EF624E8D6E100470C22 /* SampleData.swift in Sources */,
 				09511F0924E9006D00470C22 /* BankTableViewCell.swift in Sources */,
 				09511EB124E8BE1F00470C22 /* SceneDelegate.swift in Sources */,

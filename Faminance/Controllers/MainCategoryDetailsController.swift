@@ -19,6 +19,7 @@ class MainCategoryDetailsController: UIViewController {
     var cashTransactions = [(key: String, value: CashTransaction)]()
     
     private let cellId = "cellId"
+    private let dateCellId = "dateCellId"
     
     var startColorIndex = 0
     var chartUiColorPallete: [UIColor] = [
@@ -92,12 +93,25 @@ class MainCategoryDetailsController: UIViewController {
     
     func setUpCashTransactionTableView() {
         if self.mainCategory == nil { return }
-        self.cashTransactions = self.mainCategory!.getAllCashTransactions()!.sorted() {$0.value.date > $1.value.date}
         
+        cashTransactions = [(key: String, value: CashTransaction)]()
+        let tmp = self.mainCategory!.getAllCashTransactions()!.sorted() {$0.value.date > $1.value.date}
+        var currentDate: Date?
+        for t in tmp {
+            if currentDate == nil {
+                cashTransactions.append((key:"dateCell",value: CashTransaction(dic:["id":"dateCell", "date": t.value.date])))
+            } else if currentDate?.toDateInt() != t.value.date.toDateInt() {
+                cashTransactions.append((key:"dateCell",value: CashTransaction(dic:["id":"dateCell", "date": t.value.date])))
+            }
+            cashTransactions.append(t)
+            currentDate = t.value.date
+            
+        }
         cashTransactionTableView.delegate = self
         cashTransactionTableView.dataSource = self
         cashTransactionTableView.register(UINib(nibName: "CashTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
-        cashTransactionTableView.rowHeight = 100
+        cashTransactionTableView.register(UINib(nibName: "DateSeparatorCell", bundle: nil), forCellReuseIdentifier: dateCellId)
+        //cashTransactionTableView.rowHeight = 100
         
         
         
@@ -107,21 +121,40 @@ class MainCategoryDetailsController: UIViewController {
 
 extension MainCategoryDetailsController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = cashTransactionTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CashTransactionTableViewCell
+        
         let ct = self.cashTransactions[indexPath.row].value
+
+        if ct.id == "dateCell"{
+            let cell = cashTransactionTableView.dequeueReusableCell(withIdentifier: dateCellId, for: indexPath) as! DateSeparatorViewCell
+            cell.separatorDate.text = ct.date.longDate()
+            return cell
+            
+        } else {
+            let cell = cashTransactionTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CashTransactionTableViewCell
+            
+            
+            
+            cell.subCategoryColorRectView.backgroundColor = chartUiColorPallete[subCategoryIds[ct.subCategoryId]! % 5]
+            
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            cell.subCategoryNameLabel.text = mainCategory?.subCategories[ct.subCategoryId]?.name
+            cell.amountLabel.text = formatter.string(from: NSNumber(value: ct.amount))
+            cell.memoLabel.text = ct.memo
+            cell.bankLabel.text = myBanks[ct.bankId]?.name
+            return cell
+        }
         
         
-        cell.subCategoryColorRectView.backgroundColor = chartUiColorPallete[subCategoryIds[ct.subCategoryId]! % 5]
-        
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        cell.subCategoryNameLabel.text = mainCategory?.subCategories[ct.subCategoryId]?.name
-        cell.amountLabel.text = formatter.string(from: NSNumber(value: ct.amount))
-        cell.dateLabel.text = ct.date.longDate()
-        cell.bankLabel.text = myBanks[ct.bankId]?.name
-        
-        
-        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let ct = self.cashTransactions[indexPath.row].value
+        if ct.id == "dateCell" {
+            return 56
+        } else {
+            return 100
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

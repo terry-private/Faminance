@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -8,15 +8,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" rowHeight="150" id="A8W-gh-qD6" customClass="CashTransactionTableViewCell" customModule="Faminance" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" rowHeight="100" id="A8W-gh-qD6" customClass="CashTransactionTableViewCell" customModule="Faminance" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="470" height="87"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999998807907104" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A8W-gh-qD6" id="5s4-6i-H8r">
                 <rect key="frame" x="0.0" y="0.0" width="470" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6RX-C8-9Or">
+                        <rect key="frame" x="50" y="3" width="420" height="81"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.04748501712" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gfw-nC-07Y">
-                        <rect key="frame" x="20" y="23" width="10" height="10"/>
+                        <rect key="frame" x="70" y="23" width="10" height="10"/>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Gfw-nC-07Y" secondAttribute="height" multiplier="1:1" id="Dax-9D-ivt"/>
@@ -24,13 +28,13 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保険" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGw-If-bG5">
-                        <rect key="frame" x="35" y="19" width="31" height="18"/>
+                        <rect key="frame" x="85" y="19" width="31" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥5,670" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMW-wn-g27">
-                        <rect key="frame" x="230" y="38.5" width="82" height="30"/>
+                        <rect key="frame" x="368" y="38.5" width="82" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -41,25 +45,32 @@
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020/8/27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-px-Co3">
-                        <rect key="frame" x="20" y="40.5" width="106.5" height="26.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="26.5" text="2020/8/27" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-px-Co3">
+                        <rect key="frame" x="70" y="40.5" width="250" height="26.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="250" id="Var-1w-GFU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="RMW-wn-g27" secondAttribute="trailing" constant="20" id="0rw-wQ-2ZR"/>
                     <constraint firstAttribute="trailing" secondItem="0hv-WH-6xM" secondAttribute="trailing" constant="20" id="9zo-EP-aTe"/>
+                    <constraint firstItem="6RX-C8-9Or" firstAttribute="top" secondItem="5s4-6i-H8r" secondAttribute="top" constant="3" id="SOA-FL-3TB"/>
                     <constraint firstItem="dGw-If-bG5" firstAttribute="leading" secondItem="Gfw-nC-07Y" secondAttribute="trailing" constant="5" id="U2v-gb-vDA"/>
+                    <constraint firstAttribute="bottom" secondItem="6RX-C8-9Or" secondAttribute="bottom" constant="3" id="UvP-u5-KJQ"/>
+                    <constraint firstItem="6RX-C8-9Or" firstAttribute="leading" secondItem="5s4-6i-H8r" secondAttribute="leading" constant="50" id="Wzt-fa-A1s"/>
                     <constraint firstItem="0hv-WH-6xM" firstAttribute="centerY" secondItem="Gfw-nC-07Y" secondAttribute="centerY" id="ZPp-HV-GIP"/>
-                    <constraint firstItem="RMW-wn-g27" firstAttribute="leading" secondItem="Gfw-nC-07Y" secondAttribute="trailing" constant="200" id="aC7-jz-tw9"/>
                     <constraint firstItem="dGw-If-bG5" firstAttribute="centerY" secondItem="Gfw-nC-07Y" secondAttribute="centerY" id="dEV-X0-yVf"/>
-                    <constraint firstItem="0zK-px-Co3" firstAttribute="centerY" secondItem="5s4-6i-H8r" secondAttribute="centerY" constant="10" id="ggj-ud-H8Z"/>
+                    <constraint firstItem="0zK-px-Co3" firstAttribute="centerY" secondItem="6RX-C8-9Or" secondAttribute="centerY" constant="10" id="ggj-ud-H8Z"/>
                     <constraint firstItem="Gfw-nC-07Y" firstAttribute="top" secondItem="5s4-6i-H8r" secondAttribute="top" constant="23" id="lF6-EA-q8C"/>
                     <constraint firstItem="RMW-wn-g27" firstAttribute="centerY" secondItem="5s4-6i-H8r" secondAttribute="centerY" constant="10" id="mkf-fg-CMe"/>
-                    <constraint firstItem="Gfw-nC-07Y" firstAttribute="leading" secondItem="5s4-6i-H8r" secondAttribute="leading" constant="20" id="tNE-we-YLm"/>
-                    <constraint firstItem="0zK-px-Co3" firstAttribute="leading" secondItem="5s4-6i-H8r" secondAttribute="leading" constant="20" id="uEe-41-Ysk"/>
+                    <constraint firstItem="Gfw-nC-07Y" firstAttribute="leading" secondItem="6RX-C8-9Or" secondAttribute="leading" constant="20" id="tNE-we-YLm"/>
+                    <constraint firstAttribute="trailing" secondItem="6RX-C8-9Or" secondAttribute="trailing" id="tba-tR-yXV"/>
+                    <constraint firstItem="0zK-px-Co3" firstAttribute="leading" secondItem="6RX-C8-9Or" secondAttribute="leading" constant="20" id="uEe-41-Ysk"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,7 +78,7 @@
             <connections>
                 <outlet property="amountLabel" destination="RMW-wn-g27" id="OO8-nG-izQ"/>
                 <outlet property="bankLabel" destination="0hv-WH-6xM" id="U9l-FH-ZCA"/>
-                <outlet property="dateLabel" destination="0zK-px-Co3" id="9Qn-0F-YAL"/>
+                <outlet property="memoLabel" destination="0zK-px-Co3" id="9Qn-0F-YAL"/>
                 <outlet property="subCategoryColorRectView" destination="Gfw-nC-07Y" id="r3k-na-kcr"/>
                 <outlet property="subCategoryNameLabel" destination="dGw-If-bG5" id="xvh-oU-ij6"/>
             </connections>

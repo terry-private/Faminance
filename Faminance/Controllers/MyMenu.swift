@@ -44,7 +44,7 @@ class MyMenuViewController: UIViewController {
     }
     
     @objc func tappedMyTopView(){
-        print("tappedMyTopView")
+        print(CurrentData.myAccount.createdAt)
     }
     func setMyImage() {
         

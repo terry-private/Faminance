@@ -107,10 +107,12 @@ class RecordViewController : UIViewController {
         fixButton.layer.borderWidth = 2
         fixButton.layer.borderColor = UIColor.lightGray.cgColor
         memoTextField.attributedPlaceholder = NSAttributedString(string: "メモ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-        let clearButton = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(tappedClearButton))
-        clearButton.tintColor = .white
+        let cancelButton = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(tappedClearButton))
+        cancelButton.tintColor = .white
         
-        navigationItem.leftBarButtonItem = clearButton
+        inOutSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
+        
+        navigationItem.leftBarButtonItem = cancelButton
         
         
         clear()
